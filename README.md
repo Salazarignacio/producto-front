@@ -1,16 +1,50 @@
-# React + Vite
+# Product Management Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend de una aplicación de gestión de productos, orientada a un escenario tipo supermercado.
+La aplicación permite realizar operaciones CRUD consumiendo una API REST externa.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologías utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- JavaScript
+- Fetch API
+- HTML / CSS
 
-## React Compiler
+## 📦 Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Listado de productos
+- Creación de nuevos productos
+- Edición de productos existentes
+- Eliminación de productos
+- Consumo de endpoints REST mediante HTTP:
+  - GET
+  - POST
+  - PUT
+  - DELETE
 
-## Expanding the ESLint configuration
+## 🔗 Integración con Backend
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Este proyecto corresponde únicamente al **frontend**.
+La aplicación se comunica con un backend REST desarrollado en Java, alojado en un repositorio independiente.
+
+> El backend expone los endpoints necesarios para la gestión de productos y fue probado previamente con Postman antes de su integración con React.
+
+## 🛠 Estado del proyecto
+
+🟢 Primera versión funcional  
+El CRUD completo se encuentra integrado y funcionando desde el frontend.
+
+## 📌 Próximas mejoras
+
+- Manejo de errores y mensajes al usuario
+- Validaciones de formularios
+- Mejoras de UI/UX
+- Refactorización de componentes
+- Configuración de variables de entorno para la API
+
+---
+
+Proyecto en desarrollo con fines educativos y prácticos.
+
+### Backend
+Repositorio del backend: https://github.com/Salazarignacio/producto-api
