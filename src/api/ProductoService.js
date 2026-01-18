@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080/api/productos/";
+const BASE_URL = "http://localhost:8080/api/productos";
 
 export async function getAll() {
   const res = await fetch(BASE_URL + "/all");
@@ -8,7 +8,7 @@ export async function getAll() {
   return res.json();
 }
 export async function getById(id) {
-  const res = await fetch(BASE_URL + id);
+  const res = await fetch(BASE_URL + `/${id}`);
   if (!res.ok) {
     throw new ("Error al encontrar id " + id)();
   }
@@ -25,16 +25,16 @@ export async function create(product) {
   if (!res.ok) {
     throw new "Error al crear producto"();
   }
-  return res.json();
+  return await res.json();
 }
 export async function destroy(id) {
-  const res = await fetch(BASE_URL + id, { method: "DELETE" });
+  const res = await fetch(BASE_URL + `/${id}`, { method: "DELETE" });
   if (!res.ok) {
     throw new Error("No se pudo eliminar archivo");
   }
 }
 export async function update(id, product) {
-  const res = await fetch(BASE_URL + id, {
+  const res = await fetch(BASE_URL + `/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

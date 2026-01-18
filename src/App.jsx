@@ -1,7 +1,15 @@
 import "./App.css";
+import ComponentForm from "./components/ComponentForm.jsx";
+
 
 function App() {
-  return <>Producto Front</>;
+
+  return (
+    <>
+      <ComponentForm />
+      Producto Front
+    </>
+  );
 }
 
 export default App;
