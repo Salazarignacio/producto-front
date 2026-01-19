@@ -3,11 +3,11 @@ import { useState } from "react";
 import CreatePageForm from "../pages/CreatePageForm";
 
 export default function CreateComponentForm() {
-  const [productos, setProductos] = useState(null);
+  const [producto, setProducto] = useState(null);
 
   const save = (prod) => {
     create(prod)
-      .then((res) => setProductos(res))
+      .then((res) => setProducto(res))
       .catch((err) => console.error(err));
   };
   return (
