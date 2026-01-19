@@ -1,12 +1,12 @@
 import "./App.css";
-import ComponentForm from "./components/ComponentForm.jsx";
-
+import CreateComponentForm from "./components/CreateComponentForm.jsx";
+import UpdateComponentForm from "./components/UpdateComponentForm.jsx";
 
 function App() {
-
   return (
     <>
-      <ComponentForm />
+      <UpdateComponentForm />
+      <CreateComponentForm />
       Producto Front
     </>
   );

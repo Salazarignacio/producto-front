@@ -1,8 +1,8 @@
 import { create } from "../api/ProductoService";
 import { useState } from "react";
-import PageForm from "../pages/PageForm";
+import CreatePageForm from "../pages/CreatePageForm";
 
-export default function ComponentForm() {
+export default function CreateComponentForm() {
   const [productos, setProductos] = useState(null);
 
   const save = (prod) => {
@@ -12,7 +12,7 @@ export default function ComponentForm() {
   };
   return (
     <>
-      <PageForm onSave={save}></PageForm>
+      <CreatePageForm onSave={save}></CreatePageForm>
     </>
   );
 }

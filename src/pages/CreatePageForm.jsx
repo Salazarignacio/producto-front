@@ -1,7 +1,7 @@
 import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 
-export default function PageForm({ onSave }) {
+export default function CreatePageForm({ onSave }) {
   const [formData, setFormData] = useState({
     articulo: "",
     categoria: "",
