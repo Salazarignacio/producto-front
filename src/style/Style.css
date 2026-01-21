@@ -1,0 +1,26 @@
+/* Main */
+a {
+  color: white;
+}
+.main-page {
+  background-color: blue;
+}
+.botones {
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+}
+
+/* EditPage */
+
+.edit-page {
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  width: 140vh;
+}
+li {
+  list-style-type: none;
+}

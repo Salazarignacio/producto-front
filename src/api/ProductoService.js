@@ -46,3 +46,11 @@ export async function update(id, product) {
     }),
   });
 }
+
+export async function getByCode(code) {
+  const res = await fetch(BASE_URL + `/codigo/${code}`);
+  if (!res.ok) {
+    throw new ("Error al encontrar código " + code)();
+  }
+  return res.json();
+}

@@ -1,36 +1,29 @@
 import { Button } from "react-bootstrap";
-import Spinner from "react-bootstrap/Spinner";
+import Loading from "./Loading";
 import { Link, NavLink } from "react-router-dom";
 import DeleteProductoBDC from "../components/DeleteProductBDC";
+import EditProductoPage from "./EditProductoPage";
 
-export default function EditPage({ productos }) {
-  console.log(productos);
-  let loading = (
-    <div className="d-flex justify-content-center p-4">
-      <Spinner animation="border" variant="primary" />
-    </div>
-  );
+export default function EditPage({ productos, searchCode }) {
   return (
-    <>
-      <Link to={"/create"}><Button>Producto Nuevo</Button></Link>
-      {!productos
-        ? loading
-        : productos.map((element, a) => {
-            return (
-              <div key={a}>
-                <li>
-                  {element.codigo} - {element.articulo} - ${element.precio} -{" "}
-                  {element.stock}{" "}
-                  <NavLink to={`/update/${element.id}`}>
-                    <Button>Editar</Button>
-                  </NavLink>{" "}
-                  <Link>
-                    <DeleteProductoBDC id={element.id}></DeleteProductoBDC>
-                  </Link>
-                </li>
-              </div>
-            );
-          })}
-    </>
+    <div className="edit-page">
+      <input onChange={searchCode}></input>
+      <Link to={"/create"}>
+        <Button>Producto Nuevo</Button>
+      </Link>
+      {!productos ? (
+        <Loading />
+      ) : productos.length > 1 ? (
+        productos.map((element, a) => {
+          return (
+            <div key={a}>
+              <EditProductoPage props={element}></EditProductoPage>
+            </div>
+          );
+        })
+      ) : (
+        <EditProductoPage props={productos}></EditProductoPage>
+      )}
+    </div>
   );
 }
