@@ -48,9 +48,18 @@ export async function update(id, product) {
 }
 
 export async function getByCode(code) {
-  const res = await fetch(BASE_URL + `/codigo/${code}`);
-  if (!res.ok) {
-    throw new ("Error al encontrar código " + code)();
+  try {
+    const res = await fetch(BASE_URL + `/codigo/${code}`);
+    if (res.status === 404) {
+      return null; // 👈 no es error, simplemente no existe
+    }
+
+    if (!res.ok) {
+      throw new Error("Error inesperado");
+    }
+
+    return await res.json();
+  } catch (err) {
+    throw err; // errores reales
   }
-  return res.json();
 }

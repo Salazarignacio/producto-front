@@ -1,7 +1,6 @@
 import { Button } from "react-bootstrap";
 import Loading from "./Loading";
 import { Link, NavLink } from "react-router-dom";
-import DeleteProductoBDC from "../components/DeleteProductBDC";
 import EditProductoPage from "./EditProductoPage";
 
 export default function EditPage({ productos, searchCode }) {
