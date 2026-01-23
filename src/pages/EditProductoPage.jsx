@@ -2,7 +2,7 @@ import { NavLink, Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import DeleteProductoBDC from "../components/DeleteProductBDC.jsx";
 
-export default function EditProductoPage({ props}) {
+export default function EditProductoPage({ props }) {
   return (
     <>
       <li>

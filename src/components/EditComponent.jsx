@@ -1,15 +1,19 @@
 import { getAll, getByCode } from "../api/ProductoService";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import EditPage from "../pages/EditPage";
+import { ProductContext } from "../context/ProductContext";
 
 export default function EditComponent() {
   const [productos, setProductos] = useState(null);
+    const { renderProducts, setRenderProducts, setNombre, nombre } =
+    useContext(ProductContext);
+ 
 
   useEffect(() => {
     getAll()
       .then(setProductos)
       .catch((err) => console.error(err));
-  }, []);
+  }, [renderProducts]);
 
   const searchCode = async (e) => {
     const code = e.target.value;
@@ -31,6 +35,7 @@ export default function EditComponent() {
 
   return (
     <>
+    {nombre}
       <EditPage productos={productos} searchCode={searchCode}></EditPage>
     </>
   );

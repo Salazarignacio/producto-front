@@ -1,19 +1,24 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { destroy } from "../api/ProductoService";
-import { DeleteProductoBDP } from "../pages/DeleteProductBDP";
+import { Button } from "react-bootstrap";
+import { ProductContext } from "../context/ProductContext";
 
 export default function DeleteProductoBDC({ id }) {
-  const [producto, setProducto] = useState(null);
+  const [producto, setProducto] = useState(true);
+  const { renderProducts, setRenderProducts, setNombre, nombre } =
+    useContext(ProductContext);
 
   const destroyBD = (id) => {
-    console.log(id);
     destroy(parseInt(id))
-      .then((data) => setProducto(data))
+      .then((data) => setRenderProducts(prev => !prev))
       .catch((err) => console.error(err));
+    
+    setNombre("Iggnacio");
   };
   return (
     <>
-      <DeleteProductoBDP destroyFn={destroyBD} id={id}></DeleteProductoBDP>
+      {nombre}
+      <Button onClick={() => destroyBD(id)}>Delete</Button>
     </>
   );
 }
