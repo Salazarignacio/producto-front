@@ -1,26 +1,230 @@
+/* App */
+.app {
+  display: flex;
+  min-height: 100vh;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: orange; */
+}
+
 /* Main */
 a {
   color: white;
 }
 .main-page {
-  background-color: blue;
-}
-.botones {
-  background-color: red;
+  width: 240px;
+  height: 100vh;
+
+  background: linear-gradient(180deg, #f7f8fb 0%, #eef1f6 100%);
+
+  padding: 1rem 0.75rem;
+
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.btn-new {
+  background: linear-gradient(90deg, #4d44ff, #63b3ff);
+
+  color: white;
+  border: none;
+  border-radius: 0.6rem;
+  height: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  box-shadow: 0 3px 8px rgba(108, 99, 255, 0.35);
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+.btn-new:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(108, 99, 255, 0.45);
+  filter: brightness(1.05);
+}
+.btn-new:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(108, 99, 255, 0.3);
+}
+
+.botones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  padding: 0.25rem;
+}
+
+.botones button,
+.botones a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+
+  background-color: transparent;
+  color: #8b94a0;
+
+  border: none;
+  border-radius: 0.6rem;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.botones button:hover,
+.botones a:hover {
+  background-color: rgba(108, 99, 255, 0.08);
+  color: #3f4acb;
 }
 
 /* EditPage */
-
-.edit-page {
-  background-color: pink;
+.edit {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  
-  width: 140vh;
+  /* background-color: rebeccapurple; */
+}
+
+.edit-page {
+  background: linear-gradient(180deg, #f4f4f4 0%, #ffffff 70%);
+  padding: 1rem;
+  border-radius: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  height: 80vh;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* edit input */
+
+.search-input {
+  width: 100%;
+  height: 100%;
+
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1rem;
+
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+
+  font-size: 0.95rem;
+  outline: none;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.15);
+}
+
+/* Botones del edit product */
+.btn-edit {
+  padding: 0.4rem 0.8rem;
+
+  background-color: #e9e7fd;
+  color: rgb(145, 145, 145);
+
+  border: none;
+  border-radius: 0.4rem;
+
+  font-size: 0.85rem;
+  cursor: pointer;
+
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-edit:hover {
+  background-color: #5a52d4;
+  transform: translateY(-1px);
+}
+
+.searchBar {
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: blueviolet; */
+  width: 180vh;
+  margin-bottom: 2rem;
+}
+.searchBar input {
+  width: 68vw;
 }
 li {
   list-style-type: none;
+}
+
+.prod-edit-btn {
+  width: 8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* nuevo */
+.productos-edit {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Arial, sans-serif;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+}
+
+.producto-row span.codigo {
+  font-size: 0.85rem;
+  color: #8a94a6;
+  font-weight: 500;
+}
+.producto-row span.nombre {
+  font-weight: 500;
+  color: #1f2937;
+}
+.producto-row span.precio {
+  font-weight: 500;
+  color: #111827;
+}
+.producto-row span.stock {
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.producto-row {
+  font-size: 0.9rem; /* ~14.4px */
+  font-weight: 400;
+  color: #2f3640;
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr auto;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.producto-row {
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto-row:hover {
+  background-color: rgba(108, 99, 255, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(108, 99, 255, 0.12);
 }

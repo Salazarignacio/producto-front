@@ -6,7 +6,7 @@ function ProductProviderWrapper(props) {
   const [renderProducts, setRenderProducts] = useState(false);
   const [nombre, setNombre] = useState("Nacho");
   return (
-    <ProductContext.Provider value={{ renderProducts, setRenderProducts, nombre, setNombre }}>
+    <ProductContext.Provider value={{ renderProducts, setRenderProducts }}>
       {props.children}
     </ProductContext.Provider>
   );

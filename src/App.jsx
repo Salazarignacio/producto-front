@@ -1,12 +1,12 @@
-import "./App.css";
 import CreateComponentForm from "./components/CreateComponentForm.jsx";
 import UpdateComponentForm from "./components/UpdateComponentForm.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./pages/MainPage.jsx";
 import EditComponent from "./components/EditComponent.jsx";
 import DeleteProductoBDC from "./components/DeleteProductBDC.jsx";
-import "./index.css";
+import "./style/Style.css";
 import { ProductProviderWrapper } from "./context/ProductContext.jsx";
+import VentasComponent from "./components/VentasComponent.jsx";
 
 function App() {
   return (
@@ -31,6 +31,12 @@ function App() {
               exact
               path="/destroy"
               element={<DeleteProductoBDC />}
+            ></Route>
+            {/* Ventas */}
+            <Route
+              exact
+              path="/ventas"
+              element={<VentasComponent />}
             ></Route>
           </Routes>
         </BrowserRouter>

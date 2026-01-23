@@ -5,9 +5,7 @@ import { ProductContext } from "../context/ProductContext";
 
 export default function EditComponent() {
   const [productos, setProductos] = useState(null);
-    const { renderProducts, setRenderProducts, setNombre, nombre } =
-    useContext(ProductContext);
- 
+  const { renderProducts } = useContext(ProductContext);
 
   useEffect(() => {
     getAll()
@@ -34,9 +32,9 @@ export default function EditComponent() {
   };
 
   return (
-    <>
-    {nombre}
+    <div className="edit p-4">
+      <h2 className="mb-2">Editar Productos</h2>
       <EditPage productos={productos} searchCode={searchCode}></EditPage>
-    </>
+    </div>
   );
 }

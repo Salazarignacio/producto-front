@@ -1,28 +1,34 @@
 import { Button } from "react-bootstrap";
 import Loading from "./Loading";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import EditProductoPage from "./EditProductoPage";
 
 export default function EditPage({ productos, searchCode }) {
   return (
     <div className="edit-page">
-      <input onChange={searchCode}></input>
-      <Link to={"/create"}>
-        <Button>Producto Nuevo</Button>
-      </Link>
-      {!productos ? (
-        <Loading />
-      ) : productos.length > 1 ? (
-        productos.map((element, a) => {
-          return (
-            <div key={a}>
-              <EditProductoPage props={element}></EditProductoPage>
-            </div>
-          );
-        })
-      ) : (
-        <EditProductoPage props={productos}></EditProductoPage>
-      )}
+      <div className="searchBar">
+        <input onChange={searchCode} className="search-input" placeholder="Código producto"></input>
+        <Link to={"/create"}>
+          <Button className="btn-new">+ Producto Nuevo</Button>
+        </Link>
+      </div>
+      <div className="productos-edit">
+        {!productos ? (
+          <Loading />
+        ) : productos.length > 1 ? (
+          productos.map((element, a) => {
+            return (
+              <div key={a} className="producto-ind">
+                <EditProductoPage props={element}></EditProductoPage>
+              </div>
+            );
+          })
+        ) : (
+          <div className="productos-edit">
+            <EditProductoPage props={productos}></EditProductoPage>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -27,7 +27,7 @@ export default function CreatePageForm({ onSave }) {
         <Form.Group className="mb-3">
           <Form.Label>Codigo</Form.Label>
           <Form.Control
-            type="number"
+            type="text"
             name="codigo"
             value={formData.codigo}
             onChange={handleChange}

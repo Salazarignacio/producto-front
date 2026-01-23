@@ -10,15 +10,13 @@ export default function DeleteProductoBDC({ id }) {
 
   const destroyBD = (id) => {
     destroy(parseInt(id))
-      .then((data) => setRenderProducts(prev => !prev))
+      .then((data) => setRenderProducts((prev) => !prev))
       .catch((err) => console.error(err));
-    
-    setNombre("Iggnacio");
   };
   return (
     <>
       {nombre}
-      <Button onClick={() => destroyBD(id)}>Delete</Button>
+      <Button className="btn-edit" onClick={() => destroyBD(id)}>Delete</Button>
     </>
   );
 }
