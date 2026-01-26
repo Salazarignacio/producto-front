@@ -1,17 +1,20 @@
-import { Button } from "react-bootstrap";
 import Loading from "./Loading";
-import { Link } from "react-router-dom";
 import EditProductoPage from "./EditProductoPage";
+import ModalCreate from "../components/ModalCreate.jsx";
 
 export default function EditPage({ productos, searchCode }) {
   return (
     <div className="edit-page">
       <div className="searchBar">
-        <input onChange={searchCode} className="search-input" placeholder="Código producto"></input>
-        <Link to={"/create"}>
-          <Button className="btn-new">+ Producto Nuevo</Button>
-        </Link>
+        <input
+          onChange={searchCode}
+          className="search-input"
+          placeholder="Código producto"
+        ></input>
+<ModalCreate/>
+        
       </div>
+
       <div className="productos-edit">
         {!productos ? (
           <Loading />

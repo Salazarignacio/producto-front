@@ -1,3 +1,17 @@
+/* h1 */
+.app-title {
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 24px;
+}
+
+.app-title span {
+  color: #6c7cff; /* mismo azul que botones */
+  font-weight: 700;
+}
+
+
 /* App */
 .app {
   display: flex;
@@ -107,8 +121,7 @@ a {
   flex-direction: column;
   justify-content: start;
   align-items: center;
-
-  height: 80vh;
+  height: 86vh;
 
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -227,4 +240,54 @@ li {
 .producto-row:hover {
   background-color: rgba(108, 99, 255, 0.06);
   box-shadow: inset 0 0 0 1px rgba(108, 99, 255, 0.12);
+}
+
+
+/* Formularios */
+
+/* Modal */
+.modal-content {
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header-custom {
+  border-bottom: 1px solid #eee;
+}
+
+/* Form */
+.update-form {
+  padding: 10px 5px;
+}
+
+.input-soft {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.input-soft:focus {
+  border-color: #6c7cff;
+  box-shadow: 0 0 0 0.15rem rgba(108, 124, 255, 0.25);
+}
+
+/* Dos columnas */
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Botón */
+.btn-primary-soft {
+  background-color: #6c7cff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: 500;
+}
+
+.btn-primary-soft:hover {
+  background-color: #5a68e6;
 }

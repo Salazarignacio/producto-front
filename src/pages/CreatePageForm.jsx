@@ -22,50 +22,69 @@ export default function CreatePageForm({ onSave }) {
     onSave(formData);
   };
   return (
-    <div>
-      <Form onSubmit={handleSubmit}>
+    <>
+     <Form onSubmit={handleSubmit} className="update-form">
         <Form.Group className="mb-3">
-          <Form.Label>Codigo</Form.Label>
+          <Form.Label>Código</Form.Label>
           <Form.Control
-            type="text"
+            type="number"
             name="codigo"
             value={formData.codigo}
             onChange={handleChange}
+            className="input-soft"
           />
-          <Form.Label>Nombre articulo</Form.Label>
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Nombre del artículo</Form.Label>
           <Form.Control
             type="text"
             name="articulo"
             value={formData.articulo}
             onChange={handleChange}
+            className="input-soft"
           />
-          <Form.Label>Categoria</Form.Label>
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <Form.Label>Categoría</Form.Label>
           <Form.Control
             type="text"
             name="categoria"
             value={formData.categoria}
             onChange={handleChange}
-          />
-          <Form.Label>Precio</Form.Label>
-          <Form.Control
-            type="number"
-            name="precio"
-            value={formData.precio}
-            onChange={handleChange}
-          />
-          <Form.Label>Stock</Form.Label>
-          <Form.Control
-            type="number"
-            name="stock"
-            value={formData.stock}
-            onChange={handleChange}
+            className="input-soft"
           />
         </Form.Group>
 
-        <Button type="submit" variant="primary">
-          Cargar producto
+        <div className="form-row-2">
+          <Form.Group>
+            <Form.Label>Precio</Form.Label>
+            <Form.Control
+              type="number"
+              name="precio"
+              value={formData.precio}
+              onChange={handleChange}
+              className="input-soft"
+            />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label>Stock</Form.Label>
+            <Form.Control
+              type="number"
+              name="stock"
+              value={formData.stock}
+              onChange={handleChange}
+              className="input-soft"
+            />
+          </Form.Group>
+        </div>
+
+        <Button type="submit" className="btn-primary-soft w-100 mt-3">
+          Crear producto
         </Button>
       </Form>
-    </div>
+    </>
   );
 }
