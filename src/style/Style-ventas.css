@@ -1,3 +1,7 @@
+/* .app {
+  background-image: ;
+} */
+
 .productos-ventas {
   background: linear-gradient(180deg, #f4f4f4 0%, #ffffff 70%);
   padding: 1rem;
@@ -46,13 +50,102 @@
 .carrito-container {
     /* background-color: red; */
     display: flex;
-    width: 50vw;
+    width: 62.9vw;
     justify-content: space-around;
 }
 
 .carrito-titulos {
     display: flex;
-    width: 50vw;
+    width: 62.9vw;
     justify-content: space-around;
 }
 
+
+/* Carrito */
+
+/* CONTENEDOR GENERAL */
+.ventas-container {
+  display: flex;
+  gap: 20px;
+}
+
+/* BLOQUE IZQUIERDO */
+.productos-ventas {
+  flex: 3;
+}
+
+/* CABECERA */
+.carrito-titulos {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1.5fr 1.5fr 1fr;
+  padding: 10px;
+  font-weight: bold;
+  background-color: #f2f2f2;
+  border-bottom: 2px solid #ccc;
+}
+
+.carrito-titulos span {
+  text-align: center;
+}
+
+/* FILAS DEL CARRITO */
+.carrito-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1.5fr 1.5fr 1fr;
+  align-items: center;
+  padding: 8px 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.carrito-container li {
+  list-style: none;
+  text-align: center;
+}
+
+/* BOTÓN ELIMINAR */
+.carrito-container button {
+  width: 100%;
+}
+
+/* EFECTO VISUAL */
+.carrito-container:hover {
+  background-color: #fafafa;
+}
+
+/* BLOQUE DERECHO */
+.ticket-ventas {
+  flex: 1;
+  border-left: 2px solid #ddd;
+  padding: 10px;
+}
+
+.carrito-container input[type="number"] {
+  width: 70px;
+  padding: 6px 8px;
+  text-align: center;
+
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fafafa;
+
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+/* Al pasar el mouse */
+.carrito-container input[type="number"]:hover {
+  border-color: #999;
+  background-color: #fff;
+}
+
+/* Cuando el usuario escribe */
+.carrito-container input[type="number"]:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+  background-color: #fff;
+}
+.carrito-container input[type="number"]::-webkit-inner-spin-button,
+.carrito-container input[type="number"]::-webkit-outer-spin-button {
+  opacity: 0.6;
+}

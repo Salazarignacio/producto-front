@@ -1,43 +1,41 @@
 import SearchIndex from "../reutilizable/SearchIndex";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { getByCode } from "../api/ProductoService";
 import VentasPage from "../pages/VentasPage";
 import "../style/Style-ventas.css";
 
 export default function VentasComponent({}) {
   const [productos, setProductos] = useState([]);
-  useEffect(() => {
-    console.log(productos);
-  }, [productos]);
 
-  const searchCode = async (e) => {
-    const code = e.target.value;
-    let data;
-    if (code) {
-      data = await getByCode(code);
-    }
-    if (data) {
-      setProductos((prevProductos) => {
-        const productoExistente = prevProductos.find(
-          (p) => p.codigo === data.codigo
+  const searchCode = async (code) => {
+    if (!code) return;
+    const data = await getByCode(code);
+    setProductos((prev) => {
+      const existe = prev.find((p) => p.codigo === data.codigo);
+
+      if (existe) {
+        return prev.map((p) =>
+          p.codigo === data.codigo ? { ...p, cantidad: p.cantidad + 1 } : p
         );
+      }
 
-        if (productoExistente) {
-          return prevProductos.map((p) =>
-            p.codigo === data.codigo ? { ...p, cantidad: p.cantidad + 1 } : p
-          );
-        } else {
-          return [...prevProductos, { ...data, cantidad: 1 }];
-        }
-      });
-    }
+      return [...prev, { ...data, cantidad: 1 }];
+    });
   };
 
   const eliminarProducto = (codigo) => {
-    console.log(codigo);
-
     setProductos((prevProductos) =>
       prevProductos.filter((p) => p.codigo !== codigo)
+    );
+  };
+
+  const actualizarCantidad = (codigo, nuevaCantidad) => {
+    if (nuevaCantidad < 1) return;
+
+    setProductos((prev) =>
+      prev.map((p) =>
+        p.codigo === codigo ? { ...p, cantidad: nuevaCantidad } : p
+      )
     );
   };
 
@@ -62,6 +60,7 @@ export default function VentasComponent({}) {
               <VentasPage
                 props={productos}
                 eliminarProducto={eliminarProducto}
+                actualizarCantidad={actualizarCantidad}
               ></VentasPage>
             </>
           )}
