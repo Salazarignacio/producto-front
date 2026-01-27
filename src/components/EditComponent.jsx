@@ -33,7 +33,7 @@ export default function EditComponent() {
 
   return (
     <div className="edit p-4">
-      <h2 className="mb-2">Editar Productos</h2>
+      <h2 className="section-title mb-2">Editar Productos</h2>
       <EditPage productos={productos} searchCode={searchCode}></EditPage>
     </div>
   );

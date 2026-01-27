@@ -1,13 +1,10 @@
-import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import ModalCreate from "../components/ModalCreate";
 
-export default function SearchIndex({props, searchCode}) {
+export default function SearchIndex({ props, searchCode }) {
   return (
-    <>
-      <input onChange={searchCode}></input>
-      <Link to={"/create"}>
-        <Button>Producto Nuevo</Button>
-      </Link>
-    </>
+    <div className="container-one mb-3">
+      <input onChange={searchCode} placeholder="Ingrese el código del producto" className="search-input"></input>
+      <ModalCreate></ModalCreate>
+    </div>
   );
 }

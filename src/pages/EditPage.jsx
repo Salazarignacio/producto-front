@@ -1,6 +1,7 @@
-import Loading from "./Loading";
+import Loading from "../reutilizable/Loading.jsx";
 import EditProductoPage from "./EditProductoPage";
 import ModalCreate from "../components/ModalCreate.jsx";
+import "../style/Style.css"
 
 export default function EditPage({ productos, searchCode }) {
   return (
@@ -15,7 +16,7 @@ export default function EditPage({ productos, searchCode }) {
         
       </div>
 
-      <div className="productos-edit">
+      <div className="">
         {!productos ? (
           <Loading />
         ) : productos.length > 1 ? (
@@ -27,7 +28,7 @@ export default function EditPage({ productos, searchCode }) {
             );
           })
         ) : (
-          <div className="productos-edit">
+          <div className="productos-ventas">
             <EditProductoPage props={productos}></EditProductoPage>
           </div>
         )}
