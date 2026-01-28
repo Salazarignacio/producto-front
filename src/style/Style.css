@@ -1,4 +1,6 @@
-a {text-decoration: none;}
+a {
+  text-decoration: none;
+}
 
 /* h1 */
 .app-title {
@@ -36,7 +38,7 @@ a {
   width: 240px;
   height: 100vh;
 
-  background: linear-gradient(180deg, #f7f8fb 0%, #eef1f6 100%);
+  background: linear-gradient(180deg, #f7f8fb72 0%, #eef1f644 100%);
 
   padding: 1rem 0.75rem;
 
@@ -132,6 +134,7 @@ a {
 
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
 }
 
 /* edit input */
@@ -182,9 +185,11 @@ a {
   height: 3rem;
   display: flex;
   justify-content: space-between;
-  /* background-color: blueviolet; */
   width: 180vh;
   margin-bottom: 2rem;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #ddd;
 }
 .searchBar input {
   width: 68vw;

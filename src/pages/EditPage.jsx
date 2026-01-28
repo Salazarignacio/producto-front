@@ -27,13 +27,13 @@ export default function EditPage({ productos, searchCode }) {
         ) : productos.length > 1 ? (
           productos.map((element, a) => {
             return (
-              <div key={a} className="producto-ind">
+              <div key={a} className="">
                 <EditProductoPage props={element}></EditProductoPage>
               </div>
             );
           })
         ) : (
-          <div className="productos-ventas">
+          <div className="">
             <EditProductoPage props={productos}></EditProductoPage>
           </div>
         )}
