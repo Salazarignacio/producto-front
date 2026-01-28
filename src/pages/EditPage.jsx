@@ -1,7 +1,7 @@
 import Loading from "../reutilizable/Loading.jsx";
 import EditProductoPage from "./EditProductoPage";
 import ModalCreate from "../components/ModalCreate.jsx";
-import "../style/Style.css"
+import "../style/Style.css";
 
 export default function EditPage({ productos, searchCode }) {
   return (
@@ -9,11 +9,16 @@ export default function EditPage({ productos, searchCode }) {
       <div className="searchBar">
         <input
           onChange={searchCode}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+            }
+          }}
           className="search-input"
           placeholder="Código producto"
-        ></input>
-<ModalCreate/>
-        
+        />
+
+        <ModalCreate />
       </div>
 
       <div className="">

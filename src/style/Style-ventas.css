@@ -1,6 +1,6 @@
-/* .app {
-  background-image: ;
-} */
+.app {
+  background-image: url("../assets/fondo1.jpeg");
+} 
 
 .productos-ventas {
   background: linear-gradient(180deg, #f4f4f4 0%, #ffffff 70%);

@@ -7,7 +7,7 @@ export default function CreatePageForm({ onSave }) {
     categoria: "",
     precio: 0,
     stock: 0,
-    codigo: 0,
+    codigo: "",
   });
   const handleChange = (e) => {
     const { name, value, type } = e.target;
@@ -21,16 +21,23 @@ export default function CreatePageForm({ onSave }) {
     e.preventDefault();
     onSave(formData);
   };
+  
+
   return (
     <>
-     <Form onSubmit={handleSubmit} className="update-form">
+      <Form onSubmit={handleSubmit} className="update-form">
         <Form.Group className="mb-3">
           <Form.Label>Código</Form.Label>
           <Form.Control
-            type="number"
+            type="text"
             name="codigo"
             value={formData.codigo}
             onChange={handleChange}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+              }
+            }}
             className="input-soft"
           />
         </Form.Group>

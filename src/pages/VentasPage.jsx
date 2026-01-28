@@ -4,6 +4,7 @@ export default function VentasPage({
   props,
   eliminarProducto,
   actualizarCantidad,
+  actualizarPrecio,
 }) {
   return (
     <>
@@ -11,6 +12,8 @@ export default function VentasPage({
         <div key={a.codigo} className="carrito-container">
           <li>{a.codigo}</li>
           <li>{a.articulo}</li>
+
+          {/* Input que cambia valor manualmente */}
           <li>
             <input
               type="number"
@@ -21,10 +24,23 @@ export default function VentasPage({
               }
             />
           </li>
-          <li>${a.precio}</li>
+          <li>
+            <input
+              type="number"
+              value={a.precio}
+              onChange={(e) =>
+                actualizarPrecio(a.codigo, Number(e.target.value))
+              }
+            />
+          </li>
           <li>${a.precio * a.cantidad}</li>
           <li>
-            <Button onClick={() => eliminarProducto(a.codigo)}>Eliminar</Button>
+            <Button
+              className="btn-edit"
+              onClick={() => eliminarProducto(a.codigo)}
+            >
+              Eliminar
+            </Button>
           </li>
         </div>
       ))}

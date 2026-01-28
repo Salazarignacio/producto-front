@@ -11,7 +11,7 @@ export default function VentasComponent({}) {
     if (!code) return;
     const data = await getByCode(code);
     setProductos((prev) => {
-      const existe = prev.find((p) => p.codigo === data.codigo);
+      const existe = prev.find((p) => p.codigo == data.codigo);
 
       if (existe) {
         return prev.map((p) =>
@@ -30,12 +30,19 @@ export default function VentasComponent({}) {
   };
 
   const actualizarCantidad = (codigo, nuevaCantidad) => {
-    if (nuevaCantidad < 1) return;
+    /* if (nuevaCantidad < 1) return; */
 
     setProductos((prev) =>
       prev.map((p) =>
         p.codigo === codigo ? { ...p, cantidad: nuevaCantidad } : p
       )
+    );
+  };
+  const actualizarPrecio = (codigo, nuevoPrecio) => {
+    /* if (nuevaCantidad < 1) return; */
+
+    setProductos((prev) =>
+      prev.map((p) => (p.codigo === codigo ? { ...p, precio: nuevoPrecio } : p))
     );
   };
 
@@ -55,12 +62,13 @@ export default function VentasComponent({}) {
                 <span>Cantidad</span>
                 <span>Precio Unitario</span>
                 <span>Subtotal</span>
-                <span>Eliminar</span>
+                <span></span>
               </div>
               <VentasPage
                 props={productos}
                 eliminarProducto={eliminarProducto}
                 actualizarCantidad={actualizarCantidad}
+                actualizarPrecio={actualizarPrecio}
               ></VentasPage>
             </>
           )}
