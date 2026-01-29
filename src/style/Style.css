@@ -2,6 +2,13 @@ a {
   text-decoration: none;
 }
 
+.general {
+  /* background-color: #111827; */
+  width: 80vb;
+  display: flex;
+  justify-content: space-between;
+}
+
 /* h1 */
 .app-title {
   font-size: 1.9rem;
@@ -35,7 +42,7 @@ a {
   color: white;
 }
 .main-page {
-  width: 240px;
+  width: 10vw;
   height: 100vh;
 
   background: linear-gradient(180deg, #f7f8fb72 0%, #eef1f644 100%);
@@ -79,9 +86,7 @@ a {
 .botones {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-
-  padding: 0.25rem;
+  width: 100%;
 }
 
 .botones button,
@@ -110,8 +115,8 @@ a {
 
 .botones button:hover,
 .botones a:hover {
-  background-color: rgba(108, 99, 255, 0.08);
-  color: #3f4acb;
+  background-color: rgb(253, 253, 253);
+  color: #35374c;
 }
 
 /* EditPage */
@@ -122,7 +127,7 @@ a {
 }
 
 .edit-page {
-  background: linear-gradient(180deg, #f4f4f4 0%, #ffffff 70%);
+  background: linear-gradient(180deg, #f4f4f4 0%, #ffffff 30%);
   padding: 1rem;
   border-radius: 1rem;
 
@@ -303,4 +308,32 @@ li {
 
 .btn-primary-soft:hover {
   background-color: #5a68e6;
+}
+
+/* FINAL BOSS */
+.only-print {display: none;}
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .ticket-print,
+  .ticket-print * {
+    visibility: visible;
+  }
+
+  .ticket-print {
+    position: static;
+    width: 280px;
+    font-family: monospace;
+    font-size: 12px;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .only-print {
+    display: inline;
+  }
 }

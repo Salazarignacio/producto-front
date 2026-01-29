@@ -2,24 +2,27 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../style/Style.css";
 
-export default function MainPage() {
+export default function MainPage({children}) {
   return (
-    <div className="main-page">
-      <h1 className="app-title">
-        Product <span>POS</span>
-      </h1>
+    <div className="general">
+      <div className="main-page">
+        <h1 className="app-title">
+          Product <span>POS</span>
+        </h1>
 
-      <div className="botones">
-        <Button>
-          <Link to={"/ventas"}>Ventas</Link>
-        </Button>
-        <Button>
-          <Link to={"/edicion"}>Edicion</Link>
-        </Button>
-        <Button>
-          <Link to={""}>Caja</Link>
-        </Button>
+        <div className="botones">
+          <Button>
+            <Link to={"/ventas"}>Ventas</Link>
+          </Button>
+          <Button>
+            <Link to={"/edicion"}>Edicion</Link>
+          </Button>
+          <Button>
+            <Link to={""}>Caja</Link>
+          </Button>
+        </div>
       </div>
+      {children}
     </div>
   );
 }

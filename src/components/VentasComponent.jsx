@@ -3,6 +3,7 @@ import { useState } from "react";
 import { getByCode } from "../api/ProductoService";
 import VentasPage from "../pages/VentasPage";
 import "../style/Style-ventas.css";
+import TicketComponent from "./TicketComponent";
 
 export default function VentasComponent({}) {
   const [productos, setProductos] = useState([]);
@@ -73,7 +74,7 @@ export default function VentasComponent({}) {
             </>
           )}
         </div>
-        <div className="ticket-ventas">Otro Componente</div>
+        <div className="ticket-ventas"><TicketComponent prods={productos}/></div>
       </div>
     </div>
   );

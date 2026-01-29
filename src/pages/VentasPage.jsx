@@ -7,15 +7,17 @@ export default function VentasPage({
   actualizarPrecio,
 }) {
   return (
-    <>
+    <div className="ticket-print">
       {props.map((a) => (
         <div key={a.codigo} className="carrito-container">
-          <li>{a.codigo}</li>
+          <li className="no-print">{a.codigo}</li>
           <li>{a.articulo}</li>
 
           {/* Input que cambia valor manualmente */}
           <li>
+            <span className="only-print">{a.cantidad}</span>
             <input
+              className="no-print"
               type="number"
               min="1"
               value={a.cantidad}
@@ -24,8 +26,11 @@ export default function VentasPage({
               }
             />
           </li>
+            
           <li>
+            <span className="only-print">{a.precio}</span>
             <input
+              className="no-print"
               type="number"
               value={a.precio}
               onChange={(e) =>
@@ -33,10 +38,13 @@ export default function VentasPage({
               }
             />
           </li>
+          
           <li>${a.precio * a.cantidad}</li>
           <li>
+            
+            
             <Button
-              className="btn-edit"
+              className="btn-edit no-print"
               onClick={() => eliminarProducto(a.codigo)}
             >
               Eliminar
@@ -44,6 +52,6 @@ export default function VentasPage({
           </li>
         </div>
       ))}
-    </>
+    </div>
   );
 }
