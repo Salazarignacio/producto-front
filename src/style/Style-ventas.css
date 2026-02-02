@@ -5,17 +5,19 @@
 }
 
 .productos-ventas {
-  background: linear-gradient(180deg, #f4f4f4 0%, #ffffffa3 70%);
+  background: linear-gradient(180deg, #f4f4f4 0%, #ffffffeb 70%);
   padding: 1rem;
   border-radius: 1rem;
-  
+
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
   height: 86vh;
-  
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
+
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.12),
+    0 2px 6px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 .ticket-ventas {
@@ -25,22 +27,63 @@
 
   height: 50vh;
 
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.12),
+    0 2px 6px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .ventas-container {
   display: flex;
-  
+
   /* background-color: red; */
   width: 86.5vw; /* esto tiene que coincidir con */
 }
 
 .container-one {
-  width: 52vw;
-  height: 6vh;
+  width: 63vw;
+  /* background-color: red; */
   display: flex;
+  align-items: start;
   justify-content: space-between;
+  gap: 12px;
+}
+
+/* INPUT */
+.search-input {
+  flex: 1;
+  height: 42px;
+  padding: 0 16px;
+
+  border-radius: 10px;
+  border: 1px solid rgba(108, 99, 255, 0.35);
+
+  font-size: 15px;
+  font-weight: 500;
+
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #333;
+
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.btn-mas {
+  height: 44px;
+  
+  background-color: rgb(0, 60, 255);
+  font-size: 20px;
+}
+
+.search-input::placeholder {
+  color: #8a8a8a;
+}
+
+/* FOCUS LINDO */
+.search-input:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.25);
+  background-color: #fff;
 }
 
 /* Carrito */
@@ -153,7 +196,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  
+
   height: 100%;
-  
 }

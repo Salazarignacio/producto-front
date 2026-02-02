@@ -4,9 +4,10 @@ a {
 
 .general {
   /* background-color: #111827; */
-  width: 80vb;
+  
   display: flex;
   justify-content: space-between;
+  
 }
 
 /* h1 */
@@ -32,7 +33,7 @@ a {
 .app {
   display: flex;
   min-height: 100vh;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   /* background-color: orange; */
 }
@@ -45,7 +46,8 @@ a {
   width: 10vw;
   height: 100vh;
 
-  background: linear-gradient(180deg, #f7f8fb72 0%, #eef1f644 100%);
+   background: linear-gradient(180deg, #f7f8fbae 0%, #eef1f6d4 100%); 
+  
 
   padding: 1rem 0.75rem;
 
