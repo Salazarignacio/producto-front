@@ -1,6 +1,6 @@
 import SearchIndex from "../reutilizable/SearchIndex";
-import { useState } from "react";
-import { getByCode } from "../api/ProductoService";
+import { useState, useEffect } from "react";
+import { getByCode, test } from "../api/ProductoService";
 import VentasPage from "../pages/VentasPage";
 import "../style/Style-ventas.css";
 import TicketComponent from "./TicketComponent";
@@ -8,6 +8,18 @@ import TicketComponent from "./TicketComponent";
 export default function VentasComponent({}) {
   const [productos, setProductos] = useState([]);
 
+  useEffect(() => {
+  const probarEndpoint = async () => {
+    try {
+      const data = await test();
+      console.log("Respuesta test:", data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  probarEndpoint();
+}, []);
   const searchCode = async (code) => {
     if (!code) return;
     const data = await getByCode(code);
@@ -16,7 +28,7 @@ export default function VentasComponent({}) {
 
       if (existe) {
         return prev.map((p) =>
-          p.codigo === data.codigo ? { ...p, cantidad: p.cantidad + 1 } : p
+          p.codigo === data.codigo ? { ...p, cantidad: p.cantidad + 1 } : p,
         );
       }
 
@@ -26,7 +38,7 @@ export default function VentasComponent({}) {
 
   const eliminarProducto = (codigo) => {
     setProductos((prevProductos) =>
-      prevProductos.filter((p) => p.codigo !== codigo)
+      prevProductos.filter((p) => p.codigo !== codigo),
     );
   };
 
@@ -35,15 +47,17 @@ export default function VentasComponent({}) {
 
     setProductos((prev) =>
       prev.map((p) =>
-        p.codigo === codigo ? { ...p, cantidad: nuevaCantidad } : p
-      )
+        p.codigo === codigo ? { ...p, cantidad: nuevaCantidad } : p,
+      ),
     );
   };
   const actualizarPrecio = (codigo, nuevoPrecio) => {
     /* if (nuevaCantidad < 1) return; */
 
     setProductos((prev) =>
-      prev.map((p) => (p.codigo === codigo ? { ...p, precio: nuevoPrecio } : p))
+      prev.map((p) =>
+        p.codigo === codigo ? { ...p, precio: nuevoPrecio } : p,
+      ),
     );
   };
 
@@ -74,7 +88,9 @@ export default function VentasComponent({}) {
             </>
           )}
         </div>
-        <div className="ticket-ventas"><TicketComponent prods={productos}/></div>
+        <div className="ticket-ventas">
+          <TicketComponent prods={productos} />
+        </div>
       </div>
     </div>
   );

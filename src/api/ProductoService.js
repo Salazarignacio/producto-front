@@ -7,6 +7,15 @@ export async function getAll() {
   }
   return res.json();
 }
+export async function test() {
+  const res = await fetch(BASE_URL + "/test");
+  if (!res.ok) {
+    throw new Error("Error al obtener productos");
+  }
+  console.log(res);
+  
+  return res;
+}
 export async function getById(id) {
   const res = await fetch(BASE_URL + `/${id}`);
   if (!res.ok) {
