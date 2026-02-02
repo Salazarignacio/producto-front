@@ -47,4 +47,6 @@ El CRUD completo se encuentra integrado y funcionando desde el frontend.
 Proyecto en desarrollo con fines educativos y prácticos.
 
 ### Backend
-Repositorio del backend: https://github.com/Salazarignacio/producto-api
+https://github.com/Salazarignacio/producto-api
+### Deploy
+https://producto-front-lqpuye7af-salazarignacios-projects.vercel.app/
