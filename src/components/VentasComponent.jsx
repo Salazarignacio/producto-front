@@ -8,18 +8,6 @@ import TicketComponent from "./TicketComponent";
 export default function VentasComponent({}) {
   const [productos, setProductos] = useState([]);
 
-  useEffect(() => {
-  const probarEndpoint = async () => {
-    try {
-      const data = await test();
-      console.log("Respuesta test:", data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  probarEndpoint();
-}, []);
   const searchCode = async (code) => {
     if (!code) return;
     const data = await getByCode(code);

@@ -5,6 +5,7 @@ import DeleteProductoBDC from "./components/DeleteProductBDC.jsx";
 import "./style/Style.css";
 import { ProductProviderWrapper } from "./context/ProductContext.jsx";
 import VentasComponent from "./components/VentasComponent.jsx";
+import TesteComponent from "./components/TestComponent.jsx";
 
 function App() {
   return (
@@ -12,8 +13,10 @@ function App() {
       <ProductProviderWrapper>
         <BrowserRouter>
           <MainPage></MainPage>
+          
           <Routes>
             <Route exact path="/edicion" element={<EditComponent />}></Route>
+            <Route exact path="/" element={<TesteComponent></TesteComponent>}></Route>
             {/* Delete */}
 
             <Route
