@@ -8,8 +8,12 @@ export default function TicketPage({ total, items }) {
       <li>Cantidad de productos: {items}</li>
       <li>Total ${total}</li>
       <div>
-        <Button onClick={handlePrint}>Confirmar / Imprimir</Button>
-        <Button>Cancelar Venta</Button>
+        <Button className="btn-edit" onClick={handlePrint}>
+          Confirmar / Imprimir
+        </Button>
+      </div>
+      <div>
+        <Button className="btn-edit">Cancelar Venta</Button>
       </div>
     </div>
   );

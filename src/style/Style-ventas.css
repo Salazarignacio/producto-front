@@ -1,5 +1,5 @@
 .app {
-  background-image: url("../assets/wall2.jpeg");
+  background-image: url("../assets/wall3.jpeg");
     background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -70,13 +70,29 @@
   outline: none;
   transition: all 0.25s ease;
 }
-
-.btn-mas {
-  height: 44px;
-  
-  background-color: rgb(0, 60, 255);
-  font-size: 20px;
+.btn-mas{
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.1s;
 }
+
+.btn-mas:hover{
+  transform: scale(1.1);
+  background-color: greenyellow;
+}
+
+.btn-mas:active{
+  transform: scale(0.95);
+  
+}
+
+.btn-mas img{
+  width: 50px;
+  height: 50px;
+}
+
 
 .search-input::placeholder {
   color: #8a8a8a;

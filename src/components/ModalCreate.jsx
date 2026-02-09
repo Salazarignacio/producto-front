@@ -5,6 +5,9 @@ import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { create } from "../api/ProductoService";
 import CreatePageForm from "../pages/CreatePageForm";
+import botonMas from "../assets/botonmas.png";
+
+
 
 export default function ModalCreate({}) {
   const { setRenderProducts } = useContext(ProductContext);
@@ -23,7 +26,7 @@ export default function ModalCreate({}) {
   return (
     <>
       <Button variant="primary" className="btn-mas" onClick={handleShow}>
-        + 
+        <img src={botonMas} alt="agregar" />
       </Button>
 
       <Modal show={show} onHide={handleClose}>
