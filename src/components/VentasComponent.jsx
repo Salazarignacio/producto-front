@@ -24,7 +24,7 @@ export default function VentasComponent({}) {
 
         return [...prev, { ...data, cantidad: 1 }];
       });
-    } else return "Producto no encontrado"
+    }
   };
 
   const eliminarProducto = (codigo) => {
