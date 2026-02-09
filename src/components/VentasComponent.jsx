@@ -11,17 +11,20 @@ export default function VentasComponent({}) {
   const searchCode = async (code) => {
     if (!code) return;
     const data = await getByCode(code);
-    setProductos((prev) => {
-      const existe = prev.find((p) => p.codigo == data.codigo);
 
-      if (existe) {
-        return prev.map((p) =>
-          p.codigo === data.codigo ? { ...p, cantidad: p.cantidad + 1 } : p,
-        );
-      }
+    if (data) {
+      setProductos((prev) => {
+        const existe = prev.find((p) => p.codigo == data.codigo);
 
-      return [...prev, { ...data, cantidad: 1 }];
-    });
+        if (existe) {
+          return prev.map((p) =>
+            p.codigo === data.codigo ? { ...p, cantidad: p.cantidad + 1 } : p,
+          );
+        }
+
+        return [...prev, { ...data, cantidad: 1 }];
+      });
+    } else return "Producto no encontrado"
   };
 
   const eliminarProducto = (codigo) => {
@@ -31,8 +34,6 @@ export default function VentasComponent({}) {
   };
 
   const actualizarCantidad = (codigo, nuevaCantidad) => {
-    /* if (nuevaCantidad < 1) return; */
-
     setProductos((prev) =>
       prev.map((p) =>
         p.codigo === codigo ? { ...p, cantidad: nuevaCantidad } : p,
@@ -40,8 +41,6 @@ export default function VentasComponent({}) {
     );
   };
   const actualizarPrecio = (codigo, nuevoPrecio) => {
-    /* if (nuevaCantidad < 1) return; */
-
     setProductos((prev) =>
       prev.map((p) =>
         p.codigo === codigo ? { ...p, precio: nuevoPrecio } : p,
