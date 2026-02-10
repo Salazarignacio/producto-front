@@ -1,10 +1,28 @@
 .app {
   background-image: url("../assets/wall3.jpeg");
-    background-size: cover;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  min-height: 100vh;
+  align-items: stretch;
 
   /* background-color: rgb(191, 150, 47); */
+}
+
+.layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* contenido principal */
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
 .productos-ventas {
@@ -24,11 +42,11 @@
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.cancel-btn{
+.cancel-btn {
   background-color: #a2a8dd83;
   border-color: #a2a8dd;
 }
-.cancel-btn:hover{
+.cancel-btn:hover {
   background-color: #6c7cff;
 }
 .ticket-ventas {
@@ -36,7 +54,7 @@
   padding: 1rem;
   border-radius: 1rem;
 
-  min-height: 50vh;
+  height: 86vh;
 
   box-shadow:
     0 6px 18px rgba(0, 0, 0, 0.12),
@@ -78,7 +96,7 @@
   outline: none;
   transition: all 0.25s ease;
 }
-.btn-mas{
+.btn-mas {
   background: transparent;
   border: none;
   padding: 0;
@@ -86,21 +104,19 @@
   transition: transform 0.1s;
 }
 
-.btn-mas:hover{
+.btn-mas:hover {
   transform: scale(1.1);
   background-color: greenyellow;
 }
 
-.btn-mas:active{
+.btn-mas:active {
   transform: scale(0.95);
-  
 }
 
-.btn-mas img{
+.btn-mas img {
   width: 50px;
   height: 50px;
 }
-
 
 .search-input::placeholder {
   color: #8a8a8a;
@@ -256,7 +272,7 @@
   background: #ffffff;
   border-radius: 12px;
   padding: 1rem 1.2rem;
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
 /* filas */
@@ -270,7 +286,7 @@
 
 /* separador */
 .ticket-row:not(:last-child) {
-  border-bottom: 1px dashed rgba(0,0,0,0.08);
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
 }
 
 /* total destacado */

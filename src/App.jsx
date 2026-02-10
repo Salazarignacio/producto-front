@@ -12,22 +12,16 @@ function App() {
     <div className="app">
       <ProductProviderWrapper>
         <BrowserRouter>
-          <MainPage></MainPage>
-          
-          <Routes>
-            <Route exact path="/edicion" element={<EditComponent />}></Route>
-            {/* <Route exact path="/" element={<TesteComponent></TesteComponent>}></Route> */}
-            {/* Delete */}
 
-            <Route
-              exact
-              path="/destroy"
-              element={<DeleteProductoBDC />}
-            ></Route>
-            {/* Ventas */}
-            <Route exact path="/" element={<VentasComponent />}></Route>
-            <Route exact path="/ventas" element={<VentasComponent />}></Route>
-          </Routes>
+          <MainPage>
+            <Routes>
+              <Route path="/edicion" element={<EditComponent />} />
+              <Route path="/destroy" element={<DeleteProductoBDC />} />
+              <Route path="/" element={<VentasComponent />} />
+              <Route path="/ventas" element={<VentasComponent />} />
+            </Routes>
+          </MainPage>
+
         </BrowserRouter>
       </ProductProviderWrapper>
     </div>

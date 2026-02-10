@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap";
 import printlogo from "../assets/printlogo.png";
+import cancel from "../assets/cancel.png";
 
 export default function TicketPage({ total, items, setProductos }) {
   const handleCancelarVenta = () => {
@@ -50,11 +51,11 @@ export default function TicketPage({ total, items, setProductos }) {
 
       <div className="ticket-actions">
         <Button className="btn-primary-soft w-100" onClick={handlePrint}>
-          Confirmar <img src={printlogo} />
+          <img src={printlogo} />
         </Button>
 
-        <Button className="btn-edit w-100" onClick={handleCancelarVenta}>
-          Cancelar Venta
+        <Button className="btn-cancel w-100" onClick={handleCancelarVenta}>
+          Cancelar
         </Button>
       </div>
     </div>
