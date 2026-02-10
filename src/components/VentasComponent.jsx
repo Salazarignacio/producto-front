@@ -6,10 +6,18 @@ import "../style/Style-ventas.css";
 import TicketComponent from "./TicketComponent";
 
 export default function VentasComponent({}) {
-  const [productos, setProductos] = useState([]);
+  const [productos, setProductos] = useState(() => {
+    const guardados = localStorage.getItem("productos");
+    return guardados ? JSON.parse(guardados) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("productos", JSON.stringify(productos));
+  }, [productos]);
 
   const searchCode = async (code) => {
     if (!code) return;
+
     const data = await getByCode(code);
 
     if (data) {
@@ -28,9 +36,7 @@ export default function VentasComponent({}) {
   };
 
   const eliminarProducto = (codigo) => {
-    setProductos((prevProductos) =>
-      prevProductos.filter((p) => p.codigo !== codigo),
-    );
+    setProductos((prev) => prev.filter((p) => p.codigo !== codigo));
   };
 
   const actualizarCantidad = (codigo, nuevaCantidad) => {
@@ -40,6 +46,7 @@ export default function VentasComponent({}) {
       ),
     );
   };
+
   const actualizarPrecio = (codigo, nuevoPrecio) => {
     setProductos((prev) =>
       prev.map((p) =>
