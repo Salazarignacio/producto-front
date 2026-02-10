@@ -5,24 +5,26 @@ import "../style/Style.css";
 export default function MainPage({children}) {
   return (
     <div className="general">
-      <div className="main-page">
+      
+      <div className="aside">
         <h1 className="app-title">
-          Product <span>POS</span>
+          Product POS
         </h1>
 
         <div className="botones">
-          <Button>
-            <Link to={"/ventas"}>Ventas</Link>
-          </Button>
-          <Button>
-            <Link to={"/edicion"}>Edicion</Link>
-          </Button>
-          <Button>
-            <Link to={""}>Caja</Link>
-          </Button>
+          
+            <Link to={"/ventas"}><Button>Ventas</Button></Link>
+          
+          
+            <Link to={"/edicion"}><Button>Edicion</Button></Link>
+          
+          
+            <Link to={""}><Button>Balance</Button></Link>
+          
         </div>
       </div>
       {children}
+      
     </div>
   );
 }

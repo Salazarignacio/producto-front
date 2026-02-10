@@ -16,7 +16,7 @@ function App() {
           
           <Routes>
             <Route exact path="/edicion" element={<EditComponent />}></Route>
-            <Route exact path="/" element={<TesteComponent></TesteComponent>}></Route>
+            {/* <Route exact path="/" element={<TesteComponent></TesteComponent>}></Route> */}
             {/* Delete */}
 
             <Route
@@ -25,6 +25,7 @@ function App() {
               element={<DeleteProductoBDC />}
             ></Route>
             {/* Ventas */}
+            <Route exact path="/" element={<VentasComponent />}></Route>
             <Route exact path="/ventas" element={<VentasComponent />}></Route>
           </Routes>
         </BrowserRouter>

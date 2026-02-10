@@ -57,7 +57,7 @@ export default function VentasComponent({}) {
 
   return (
     <div>
-      <h2>Ventas</h2>
+      {/* <h2>Ventas</h2> */}
       <div className="ventas-container">
         <div className="productos-ventas">
           <SearchIndex searchCode={searchCode}></SearchIndex>
