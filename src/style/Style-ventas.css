@@ -112,6 +112,7 @@
   display: flex;
   width: 62.9vw;
   justify-content: space-around;
+  font-size: 18px;
 }
 
 .carrito-titulos {

@@ -14,7 +14,7 @@ export default function DeleteProductoBDC({ id }) {
   };
   return (
     <>
-      <Button className="delete-btn" onClick={() => destroyBD(id)}>
+      <Button className="btn-edit" onClick={() => destroyBD(id)}>
         <img src={deleteBtn}></img>
       </Button>
     </>
