@@ -83,7 +83,7 @@ export default function VentasComponent({}) {
           )}
         </div>
         <div className="ticket-ventas">
-          <TicketComponent prods={productos} />
+          <TicketComponent prods={productos} setProductos={setProductos} />
         </div>
       </div>
     </div>

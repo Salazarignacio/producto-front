@@ -1,8 +1,22 @@
 import { Button } from "react-bootstrap";
 import printlogo from "../assets/printlogo.png";
 
-export default function TicketPage({ total, items }) {
+export default function TicketPage({ total, items, setProductos }) {
+  const handleCancelarVenta = () => {
+    const ok = window.confirm("¿Cancelar la venta actual?");
+    if (!ok) return;
+
+    setProductos([]);
+    localStorage.removeItem("productos");
+  };
   const handlePrint = () => window.print();
+  const now = new Date();
+  const fechaFormateada = now.toLocaleDateString("es-AR");
+  const hora = now.toLocaleTimeString("es-AR", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  const totalFormateado = total.toLocaleString("es-AR");
 
   return (
     <div className="t-page">
@@ -11,13 +25,25 @@ export default function TicketPage({ total, items }) {
 
         <div className="ticket-info">
           <div className="ticket-row">
+            <span>Vendedor</span>
+            <strong>Ignacio</strong>
+          </div>
+          <div className="ticket-row">
+            <span>Fecha</span>
+            <strong>{fechaFormateada}</strong>
+          </div>
+          <div className="ticket-row">
+            <span>Hora</span>
+            <strong>{hora}</strong>
+          </div>
+          <div className="ticket-row">
             <span>Productos</span>
             <strong>{items}</strong>
           </div>
 
           <div className="ticket-row total">
             <span>Total</span>
-            <strong>${total}</strong>
+            <strong>${totalFormateado}</strong>
           </div>
         </div>
       </div>
@@ -27,7 +53,9 @@ export default function TicketPage({ total, items }) {
           Confirmar <img src={printlogo} />
         </Button>
 
-        <Button className="btn-edit w-100">Cancelar Venta</Button>
+        <Button className="btn-edit w-100" onClick={handleCancelarVenta}>
+          Cancelar Venta
+        </Button>
       </div>
     </div>
   );
