@@ -4,7 +4,7 @@ import EditPage from "../pages/EditPage";
 import { ProductContext } from "../context/ProductContext";
 
 export default function EditComponent() {
-  const [productos, setProductos] = useState(null);
+  const [productos, setProductos] = useState([]);
   const { renderProducts } = useContext(ProductContext);
 
   useEffect(() => {

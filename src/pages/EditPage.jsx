@@ -22,9 +22,9 @@ export default function EditPage({ productos, searchCode }) {
       </div>
 
       <div className="">
-        {!productos ? (
+        {productos.length < 0 ? (
           <Loading />
-        ) : productos.length > 1 ? (
+        ) : (
           productos.map((element, a) => {
             return (
               <div key={a} className="">
@@ -32,10 +32,6 @@ export default function EditPage({ productos, searchCode }) {
               </div>
             );
           })
-        ) : (
-          <div className="">
-            <EditProductoPage props={productos}></EditProductoPage>
-          </div>
         )}
       </div>
     </div>
