@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import eliminarbtn from "../assets/btndelete.png"
+import deleteBtn from "../assets/btndelete.png"
 
 export default function VentasPage({
   props,
@@ -48,7 +48,7 @@ export default function VentasPage({
               className="btn-edit no-print"
               onClick={() => eliminarProducto(a.codigo)}
             >
-              <img src={eliminarbtn}></img>
+              <img src={deleteBtn}></img>
             </Button>
           </li>
         </div>
