@@ -8,7 +8,7 @@ import balanceicon from "../assets/balance.png";
 import { NavLink } from "react-router-dom";
 
 export default function MainPage({ children }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="general">
