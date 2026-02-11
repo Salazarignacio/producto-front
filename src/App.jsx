@@ -6,6 +6,7 @@ import "./style/Style.css";
 import { ProductProviderWrapper } from "./context/ProductContext.jsx";
 import VentasComponent from "./components/VentasComponent.jsx";
 import TesteComponent from "./components/TestComponent.jsx";
+import BalanceWeb from "./components/BalanceWeb.jsx";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="/destroy" element={<DeleteProductoBDC />} />
               <Route path="/" element={<VentasComponent />} />
               <Route path="/ventas" element={<VentasComponent />} />
+              <Route path="/balance" element={<BalanceWeb />} />
             </Routes>
           </MainPage>
 
