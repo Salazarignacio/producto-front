@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { destroy } from "../api/ProductoService";
 import { Button } from "react-bootstrap";
 import { ProductContext } from "../context/ProductContext";
-import deleteBtn from "../assets/deleteBtn.png";
+import deleteBtn from "../assets/btndelete.png";
 
 
 export default function DeleteProductoBDC({ id }) {
