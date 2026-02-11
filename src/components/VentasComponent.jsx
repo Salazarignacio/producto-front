@@ -18,9 +18,10 @@ export default function VentasComponent({}) {
   const searchCode = async (code) => {
     if (!code) return;
 
-    const data = await getByCode(code);
+    let data = await getByCode(code);
 
-    if (data) {
+    if (data.length > 0) {
+      data = data[0]
       setProductos((prev) => {
         const existe = prev.find((p) => p.codigo == data.codigo);
 
