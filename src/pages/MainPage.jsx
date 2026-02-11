@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+
 import "../style/Style.css";
 import ventasicon from "../assets/ventas.png";
 import editicon from "../assets/edit.png";
