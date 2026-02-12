@@ -5,7 +5,6 @@ import DeleteProductoBDC from "./components/DeleteProductBDC.jsx";
 import "./style/Style.css";
 import { ProductProviderWrapper } from "./context/ProductContext.jsx";
 import VentasComponent from "./components/VentasComponent.jsx";
-import TesteComponent from "./components/TestComponent.jsx";
 import BalanceWeb from "./components/BalanceWeb.jsx";
 
 function App() {
