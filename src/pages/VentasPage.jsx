@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import deleteBtn from "../assets/btndelete.png"
+import deleteBtn from "../assets/btndelete.png";
 
 export default function VentasPage({
   props,
@@ -27,7 +27,7 @@ export default function VentasPage({
               }
             />
           </li>
-            
+
           <li>
             <span className="only-print">{a.precio}</span>
             <input
@@ -39,11 +39,9 @@ export default function VentasPage({
               }
             />
           </li>
-          
-          <li>${a.precio * a.cantidad}</li>
+
+          <li className="no-print">${a.precio * a.cantidad}</li>
           <li>
-            
-            
             <Button
               className="btn-edit no-print"
               onClick={() => eliminarProducto(a.codigo)}

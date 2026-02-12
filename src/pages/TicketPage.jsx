@@ -10,7 +10,11 @@ export default function TicketPage({ total, items, setProductos }) {
     setProductos([]);
     localStorage.removeItem("productos");
   };
-  const handlePrint = () => window.print();
+  const handlePrint = () => {
+    window.print();
+    setProductos([]);
+    localStorage.removeItem("productos");
+  };
   const now = new Date();
   const fechaFormateada = now.toLocaleDateString("es-AR");
   const hora = now.toLocaleTimeString("es-AR", {
