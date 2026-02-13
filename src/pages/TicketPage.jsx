@@ -54,7 +54,7 @@ export default function TicketPage({ total, items, setProductos }) {
       </div>
 
       <div className="ticket-actions">
-        <Button className="btn-primary-soft w-100" onClick={handlePrint}>
+        <Button className="btn-primary-soft w-100 btn-print" onClick={handlePrint}>
           <img src={printlogo} />
         </Button>
 

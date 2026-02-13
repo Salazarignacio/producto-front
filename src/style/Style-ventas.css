@@ -26,9 +26,9 @@
 }
 
 .productos-ventas {
-/*   overflow-y: auto;
+  /*   overflow-y: auto;
   overflow-x: hidden; */
-  background: linear-gradient(180deg, #f4f4f4 0%, #ffffffeb 70%);
+  background: var(--bg-contenedores);
   padding: 1rem;
   border-radius: 1rem;
 
@@ -38,19 +38,15 @@
   align-items: center;
   height: 86vh;
 
-  box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.12),
-    0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--sh-contenedores);
   border: 1px solid rgba(0, 0, 0, 0.05);
-  
 }
 
 .cancel-btn {
-  background-color: #a2a8dd83;
-  border-color: #a2a8dd;
+ 
 }
 .cancel-btn:hover {
-  background-color: #6c7cff;
+  transform: scale(1.1);
 }
 .ticket-ventas {
   background: linear-gradient(180deg, #f4f4f4 0%, #ffffff 70%);
@@ -58,10 +54,7 @@
   border-radius: 1rem;
 
   height: 86vh;
-
-  box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.12),
-    0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--sh-contenedores);
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -74,7 +67,7 @@
 
 .searcher-container {
   /* position: relative; */
-   /* width: 41.5vw;  */
+  /* width: 41.5vw;  */
 }
 .scroll {
   height: 100%;
@@ -114,7 +107,8 @@
 }
 
 .buscador-item:hover {
-  background: #f3f0ff; /* lila POS */
+  background: var(--hover-color);
+  box-shadow: var(--hover-shadow);
 }
 
 /* INPUT */
@@ -139,8 +133,11 @@
   /* position: relative; */
 }
 .btn-mas {
+  
   border: 2px solid rgb(116, 115, 211);
-  background-color: greenyellow;
+  background-color: rgb(155, 154, 244);
+
+
   cursor: pointer;
   transition: transform 0.1s;
   margin-left: 5px;
@@ -150,13 +147,14 @@
   justify-content: center;
   align-items: center;
   font-weight: 500;
-  color: rgb(116, 115, 211);
+  color: rgb(255, 255, 255);
 }
 
 .btn-mas:hover {
   transform: scale(1.1);
-  background-color: greenyellow;
-  color: rgb(116, 115, 211);
+    
+  border: 2px solid var(--btn-scnd);
+  background-color: var(--btn-scnd);
 }
 
 .btn-mas:active {

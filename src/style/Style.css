@@ -1,3 +1,15 @@
+:root {
+  --bg-contenedores: linear-gradient(180deg, #f4f4f4 0%, #ffffffeb 70%);
+  --sh-contenedores:
+    0 6px 18px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.08);
+  --btn-ppal: rgb(155, 154, 244);
+  --btn-scnd: rgb(144, 143, 226);
+  --hover-color: rgba(108, 99, 255, 0.06);
+  --hover-shadow: inset 0 0 0 1px rgba(108, 99, 255, 0.12);
+}
+
+
+
 a {
   text-decoration: none;
 }
@@ -37,20 +49,34 @@ a {
   color: white;
 }
 
-.active-link button {
-  background-color: #7c3aed; /* tu violeta */
-  width: 100%;
+img:hover {
+transform: scale(1.1);
+}
+.toggle-btn:hover {
+transform: scale(1.1);
 }
 
 .active-link img {
-  background-color: white;
+
   width: 100%;
+  /* border-radius: 50%; */
 }
+/* .active-link:active  {
+  background-color: rgb(75, 89, 53) !important;
+} */
+.active-link {
+  background-color: var(--hover-color) !important;
+  box-shadow: var(--hover-shadow) !important;
+}
+/* .active-link:hover {
+  background-color: var(--hover-color) !important;
+  box-shadow: var(--hover-shadow) !important;
+} */
 
 .aside {
   width: 140px;
   height: 100vh;
-  background: linear-gradient(180deg, #f4f4f4c6 0%, #ffffffd6 30%);
+  background: var(--bg-contenedores);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,10 +84,7 @@ a {
   border-right: 1px solid rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 
-    box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.12),
-    0 2px 6px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--sh-contenedores);
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -79,7 +102,8 @@ a {
   left: 90px; /* cuando esta abierto */
   width: 32px;
   height: 32px;
-  background: #6c7ae0;
+  background: var(--btn-ppal);
+  border: solid 2px var(--btn-scnd);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -154,11 +178,7 @@ a {
   cursor: pointer;
 }
 
-.botones button:hover,
-.botones a:hover {
-  background-color: rgb(253, 253, 253);
-  color: #35374c;
-}
+
 
 .botones img {
   width: 75px;
@@ -172,7 +192,7 @@ a {
 }
 
 .edit-page {
-  background: linear-gradient(180deg, #f4f4f4 0%, #ffffff 30%);
+  background: var(--bg-contenedores);
   padding: 1rem;
   border-radius: 1rem;
   width: 86.5vw;
@@ -214,6 +234,16 @@ a {
   border-color: #6c63ff;
   box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.15);
 }
+.btn-print {
+  background-color: var(--btn-ppal) !important;
+  border: 2px solid var(--btn-scnd) !important;
+}
+.btn-print:hover {
+   transform: scale(1.02);
+    
+  border: 2px solid var(--btn-scnd) !important;
+  background-color: var(--btn-scnd) !important;
+}
 
 .btn-cancel {
   height: 2.2rem;
@@ -226,8 +256,9 @@ a {
   background-color: transparent;
 }
 .btn-cancel:hover {
+   transform: scale(1.03);
   background-color: #ffe5e5;
-  border-color: #e05252;
+  border-color: #ec4a4a;
   color: #b91c1c;
 }
 
@@ -259,8 +290,11 @@ a {
 }
 
 .btn-edit:hover {
-  background-color: #5a52d4;
-  transform: translateY(-1px);
+  background-color: transparent;
+   transform: scale(1.16);
+}
+.btn-edit:active {
+  background-color: var(--btn-scnd) !important;
 }
 
 .searchBar {
@@ -338,7 +372,7 @@ li {
 }
 
 .producto-row {
-   font-size: 0,2rem;  /* ~14.4px */
+  font-size: 0, 2rem; /* ~14.4px */
   font-weight: 400;
   color: #2f3640;
   display: grid;
@@ -348,7 +382,6 @@ li {
 
   padding: 10px;
   border-bottom: 1px solid #ccc;
-  
 }
 
 .producto-row {
@@ -358,8 +391,8 @@ li {
 }
 
 .producto-row:hover {
-  background-color: rgba(108, 99, 255, 0.06);
-  box-shadow: inset 0 0 0 1px rgba(108, 99, 255, 0.12);
+  background-color: var(--hover-color);
+  box-shadow: var(--hover-shadow);
 }
 .producto-row {
   font-size: 0.9rem; /* ojo: tenías 0,2rem con coma, eso es inválido */
@@ -367,13 +400,13 @@ li {
   color: #2f3640;
 
   display: grid;
-  grid-template-columns: 
-    1.2fr   /* codigo */
-    2.2fr   /* nombre */
-    1.5fr   /* categoria */
-    1fr     /* precio */
-    0.8fr   /* stock */
-    auto;   /* botones */
+  grid-template-columns:
+    1.2fr /* codigo */
+    2.2fr /* nombre */
+    1.5fr /* categoria */
+    1fr /* precio */
+    0.8fr /* stock */
+    auto; /* botones */
 
   align-items: center;
   gap: 12px;
@@ -384,13 +417,13 @@ li {
 
 .productos-header {
   display: grid;
-  grid-template-columns: 
-    1.2fr   /* codigo */
-    2.2fr   /* nombre */
-    1.5fr   /* categoria */
-    1fr     /* precio */
-    0.8fr   /* stock */
-    auto;   /* botones */
+  grid-template-columns:
+    1.2fr /* codigo */
+    2.2fr /* nombre */
+    1.5fr /* categoria */
+    1fr /* precio */
+    0.8fr /* stock */
+    auto; /* botones */
 
   align-items: center;
   gap: 12px;
@@ -406,8 +439,6 @@ li {
   top: 0;
   z-index: 5;
 }
-
-
 
 /* Formularios */
 
@@ -458,10 +489,6 @@ li {
   width: 80px;
 }
 
-.btn-primary-soft:hover {
-  background-color: greenyellow;
-  color: black;
-}
 
 /* FINAL BOSS */
 .only-print {
