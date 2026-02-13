@@ -69,13 +69,26 @@
   width: 86.5vw; /* esto tiene que coincidir con */
 }
 
+.searcher-container {
+  /* background-color: cyan; */
+}
+
 .container-one {
   width: 63vw;
   /* background-color: red; */
   display: flex;
   align-items: start;
   justify-content: space-between;
-  gap: 12px;
+  position: relative;
+}
+
+.buscador {
+  width: 59vw;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  /* padding: 0.5rem; */
+  border-radius: 0 0 0.5rem 0.5rem;
+  padding-left: 0.5rem;
 }
 
 /* INPUT */

@@ -6,6 +6,7 @@ import "../style/Style-ventas.css";
 import TicketComponent from "./TicketComponent";
 
 export default function VentasComponent({}) {
+  const [prodPosibles, setProdPosibles] = useState([]);
   const [productos, setProductos] = useState(() => {
     const guardados = localStorage.getItem("productos");
     return guardados ? JSON.parse(guardados) : [];
@@ -15,13 +16,26 @@ export default function VentasComponent({}) {
     localStorage.setItem("productos", JSON.stringify(productos));
   }, [productos]);
 
+  const searchPosible = async (code) => {
+    if (!code) {
+      setProdPosibles([]);
+      
+    }
+
+    let data = await getByCode(code);
+    if (data) {
+      setProdPosibles(data);
+    } else setProdPosibles([]);
+    
+  };
+
   const searchCode = async (code) => {
     if (!code) return;
 
     let data = await getByCode(code);
 
     if (data.length > 0) {
-      data = data[0]
+      data = data[0];
       setProductos((prev) => {
         const existe = prev.find((p) => p.codigo == data.codigo);
 
@@ -61,7 +75,11 @@ export default function VentasComponent({}) {
       {/* <h2>Ventas</h2> */}
       <div className="ventas-container">
         <div className="productos-ventas">
-          <SearchIndex searchCode={searchCode}></SearchIndex>
+          <SearchIndex
+            searchCode={searchCode}
+            searchPosible={searchPosible}
+            posibles={prodPosibles}
+          ></SearchIndex>
           {!productos ? (
             "Ingrese Procuto"
           ) : (
