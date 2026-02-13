@@ -21,7 +21,17 @@ export default function EditPage({ productos, searchCode }) {
         <ModalCreate />
       </div>
 
-      <div className="">
+      <div className="scroll ">
+{/*         <li className="productos-header">
+          <span>Codigo</span>
+          <span>Nombre</span>
+          <span>Categoría</span>
+          <span>Precio</span>
+          <span>Stock</span>
+           <span></span>
+           <span></span>
+          
+        </li> */}
         {productos.length < 0 ? (
           <Loading />
         ) : (

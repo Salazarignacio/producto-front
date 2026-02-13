@@ -7,7 +7,7 @@ export default function EditProductoPage({ props }) {
       <li className="producto-row">
         <span className="codigo">{props.codigo}</span>
         <span className="nombre">{props.articulo}</span>
-        {/* <span className="nombre">{props.categoria}</span> */}
+         <span className="categoria">{props.categoria}</span> 
         <span className="precio">${props.precio}</span>
         <span className="stock">{props.stock}</span>
 
