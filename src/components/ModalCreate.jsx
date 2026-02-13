@@ -26,7 +26,7 @@ export default function ModalCreate({}) {
   return (
     <>
       <Button variant="primary" className="btn-mas" onClick={handleShow}>
-        <img src={botonMas} alt="agregar" />
+        Agregar Producto<img src={botonMas} alt="agregar" />
       </Button>
 
       <Modal show={show} onHide={handleClose}>

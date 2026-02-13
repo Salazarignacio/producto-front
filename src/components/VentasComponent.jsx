@@ -19,14 +19,12 @@ export default function VentasComponent({}) {
   const searchPosible = async (code) => {
     if (!code) {
       setProdPosibles([]);
-      
     }
 
     let data = await getByCode(code);
     if (data) {
       setProdPosibles(data);
     } else setProdPosibles([]);
-    
   };
 
   const searchCode = async (code) => {
@@ -92,12 +90,14 @@ export default function VentasComponent({}) {
                 <span>Subtotal</span>
                 <span></span>
               </div>
-              <VentasPage
-                props={productos}
-                eliminarProducto={eliminarProducto}
-                actualizarCantidad={actualizarCantidad}
-                actualizarPrecio={actualizarPrecio}
-              ></VentasPage>
+              <div className="scroll">
+                <VentasPage
+                  props={productos}
+                  eliminarProducto={eliminarProducto}
+                  actualizarCantidad={actualizarCantidad}
+                  actualizarPrecio={actualizarPrecio}
+                ></VentasPage>
+              </div>
             </>
           )}
         </div>

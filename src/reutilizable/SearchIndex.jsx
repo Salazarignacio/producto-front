@@ -3,39 +3,64 @@ import { useState } from "react";
 
 export default function SearchIndex({ searchPosible, searchCode, posibles }) {
   const [code, setCode] = useState("");
+  const [open, setOpen] = useState(false);
+
+  const handleSearch = async (value) => {
+    if (!value) return;
+    await searchCode(value);
+    setCode("");
+    setOpen(false);
+  };
 
   const handleKeyDown = async (e) => {
     if (e.key === "Enter") {
-      await searchCode(code);
-      setCode("");
+      await handleSearch(code);
     }
   };
+
   const handleChange = async (value) => {
+    setCode(value);
+
+    if (!value.trim()) {
+      setOpen(false);
+      return;
+    }
+
     await searchPosible(value);
-    console.log(posibles);
+    setOpen(true);
+  };
+
+  const handleSelect = async (producto) => {
+    await handleSearch(producto.codigo); // usa codigo real
   };
 
   return (
     <div className="searcher-container">
-      <div className="container-one">
+      <div className="container-one ">
         <input
           value={code}
-          onChange={(e) => {
-            const value = e.target.value;
-            setCode(value);
-            handleChange(value);
-          }}
+          onChange={(e) => handleChange(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Ingrese el código del producto"
           className="search-input"
-        ></input>
-        <ModalCreate></ModalCreate>
+        />
+
+        <ModalCreate />
       </div>
-      <div className="buscador">
-        {posibles.map((a) => {
-          return <li>{a.articulo}</li>;
-        })}
-      </div>
+
+      {open && posibles.length > 0 && (
+        <div className="buscador">
+          {posibles.map((a, i) => (
+            <div
+              key={i}
+              className="buscador-item"
+              onClick={() => handleSelect(a)}
+            >
+              {a.articulo}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

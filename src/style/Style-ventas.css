@@ -26,6 +26,8 @@
 }
 
 .productos-ventas {
+/*   overflow-y: auto;
+  overflow-x: hidden; */
   background: linear-gradient(180deg, #f4f4f4 0%, #ffffffeb 70%);
   padding: 1rem;
   border-radius: 1rem;
@@ -40,6 +42,7 @@
     0 6px 18px rgba(0, 0, 0, 0.12),
     0 2px 6px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
+  
 }
 
 .cancel-btn {
@@ -70,30 +73,55 @@
 }
 
 .searcher-container {
-  /* background-color: cyan; */
+  /* position: relative; */
+   /* width: 41.5vw;  */
 }
-
+.scroll {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 .container-one {
   width: 63vw;
   /* background-color: red; */
   display: flex;
   align-items: start;
   justify-content: space-between;
-  position: relative;
+  /* position: relative; */
 }
 
 .buscador {
-  width: 59vw;
-  background-color: rgb(255, 255, 255);
   position: absolute;
-  /* padding: 0.5rem; */
-  border-radius: 0 0 0.5rem 0.5rem;
-  padding-left: 0.5rem;
+  top: 100px; /* distancia desde el input (ajustá fino) */
+
+  width: 100%; /* que coincida con el input */
+  max-width: 41.5vw; /* mismo límite que el contenedor padre */
+
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+
+  padding: 0.4rem 0.5rem;
+  box-sizing: border-box;
+
+  z-index: 999; /* que flote sobre todo */
+}
+
+.buscador-item {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.buscador-item:hover {
+  background: #f3f0ff; /* lila POS */
 }
 
 /* INPUT */
+
 .search-input {
-  flex: 1;
+  /* flex: 1; */
+  width: 100%;
   height: 42px;
   padding: 0 16px;
 
@@ -108,18 +136,27 @@
 
   outline: none;
   transition: all 0.25s ease;
+  /* position: relative; */
 }
 .btn-mas {
-  background: transparent;
-  border: none;
-  padding: 0;
+  border: 2px solid rgb(116, 115, 211);
+  background-color: greenyellow;
   cursor: pointer;
   transition: transform 0.1s;
+  margin-left: 5px;
+  height: 42px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  color: rgb(116, 115, 211);
 }
 
 .btn-mas:hover {
   transform: scale(1.1);
   background-color: greenyellow;
+  color: rgb(116, 115, 211);
 }
 
 .btn-mas:active {
