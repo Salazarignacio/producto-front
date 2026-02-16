@@ -18,7 +18,7 @@ function App() {
               <Route path="/edicion" element={<EditComponent />} />
               <Route path="/destroy" element={<DeleteProductoBDC />} />
               <Route path="/" element={<VentasComponent />} />
-              <Route path="/ventas" element={<VentasComponent />} />
+              
               <Route path="/balance" element={<BalanceWeb />} />
             </Routes>
           </MainPage>

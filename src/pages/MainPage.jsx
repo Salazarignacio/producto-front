@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Button } from "react-bootstrap";
 
 import "../style/Style.css";
 import ventasicon from "../assets/ventas.png";
@@ -24,7 +23,7 @@ export default function MainPage({ children }) {
       <div className={`aside ${open ? "open" : "closed"}`}>
         <div className="botones">
           <NavLink
-            to="/ventas"
+            to="/"
             className={({ isActive }) => (isActive ? "active-link" : "")}
           >
             <button    className={({ isActive }) => (isActive ? "active-link" : "")}>
