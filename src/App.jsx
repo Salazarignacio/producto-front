@@ -6,26 +6,42 @@ import "./style/Style.css";
 import { ProductProviderWrapper } from "./context/ProductContext.jsx";
 import VentasComponent from "./components/VentasComponent.jsx";
 import BalanceWeb from "./components/BalanceWeb.jsx";
+import { useEffect, useState } from "react";
 
 function App() {
+const [dark, setDark] = useState(() => {
+  return localStorage.getItem("dark") === "true";
+});
+
+useEffect(() => {
+  if (dark) {
+    document.body.classList.add("dark");
+  } else {
+    document.body.classList.remove("dark");
+  }
+  localStorage.setItem("dark", dark);
+}, [dark]);
   return (
-    <div className="app">
-      <ProductProviderWrapper>
-        <BrowserRouter>
+    <>
+      <button className="darkMode" onClick={() => setDark(!dark)}>
+  {dark ? "☀️" : "🌙"}
+</button>
+      <div className="app">
+        <ProductProviderWrapper>
+          <BrowserRouter>
+            <MainPage>
+              <Routes>
+                <Route path="/edicion" element={<EditComponent />} />
+                <Route path="/destroy" element={<DeleteProductoBDC />} />
+                <Route path="/" element={<VentasComponent />} />
 
-          <MainPage>
-            <Routes>
-              <Route path="/edicion" element={<EditComponent />} />
-              <Route path="/destroy" element={<DeleteProductoBDC />} />
-              <Route path="/" element={<VentasComponent />} />
-              
-              <Route path="/balance" element={<BalanceWeb />} />
-            </Routes>
-          </MainPage>
-
-        </BrowserRouter>
-      </ProductProviderWrapper>
-    </div>
+                <Route path="/balance" element={<BalanceWeb />} />
+              </Routes>
+            </MainPage>
+          </BrowserRouter>
+        </ProductProviderWrapper>
+      </div>
+    </>
   );
 }
 
