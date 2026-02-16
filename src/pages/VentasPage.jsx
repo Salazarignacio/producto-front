@@ -11,7 +11,7 @@ export default function VentasPage({
     <div className="ticket-print">
       {props.map((a) => (
         <div key={a.codigo} className="carrito-container">
-          <li className="no-print">{a.codigo}</li>
+          {/* <li className="no-print">{a.codigo}</li> */}
           <li>{a.articulo}</li>
 
           {/* Input que cambia valor manualmente */}

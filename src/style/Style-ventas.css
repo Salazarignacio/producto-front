@@ -130,12 +130,12 @@
 
   outline: none;
   transition: all 0.25s ease;
-  /* position: relative; */
+   position: relative; 
 }
 .btn-mas {
   
-  border: 2px solid rgb(116, 115, 211);
-  background-color: rgb(155, 154, 244);
+  border: 2px solid var(--btn-scnd);
+  background-color: var(--btn-ppal);
 
 
   cursor: pointer;
@@ -209,7 +209,7 @@
 /* CABECERA */
 .carrito-titulos {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr 1.5fr 1.5fr 1fr;
+  grid-template-columns:  3fr 1fr 1.5fr 1.5fr 1fr;
   padding: 10px;
   font-weight: bold;
   background-color: #f2f2f2;
@@ -223,7 +223,7 @@
 /* FILAS DEL CARRITO */
 .carrito-container {
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr 1.5fr 1.5fr 1fr;
+  grid-template-columns:  3fr 1fr 1.5fr 1.5fr 1fr;
   align-items: center;
   padding: 8px 10px;
   border-bottom: 1px solid #e0e0e0;
