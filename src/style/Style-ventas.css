@@ -154,6 +154,26 @@ background-attachment: fixed;
   color: rgb(255, 255, 255);
 }
 
+.btn-vacio {
+  border: 2px solid #bfc6d1 !important;
+  background-color: #e9edf3 !important;
+
+  cursor: not-allowed;
+  transition: transform 0.1s;
+  margin-left: 5px;
+  height: 42px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  color: #8b94a7 !important;
+  opacity: 0.7;
+}
+.btn-vacio:hover {
+  transform: none;
+}
+
 .btn-mas:hover {
   transform: scale(1.1);
 
@@ -165,7 +185,7 @@ background-attachment: fixed;
   transform: scale(0.95);
 }
 
-.btn-mas img {
+.btn-mas img, .btn-vacio img {
   width: 50px;
   height: 50px;
 }
