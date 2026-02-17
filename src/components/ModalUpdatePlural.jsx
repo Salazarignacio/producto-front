@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { Modal } from "react-bootstrap";
 import { getById, update } from "../api/ProductoService";
+import UpdatePageForm from "../pages/UpdatePageForm";
 
 export default function UpdatePlural() {
   const { selectedIds } = useContext(SelectedIds);
@@ -21,10 +22,20 @@ export default function UpdatePlural() {
     selectedIds.forEach(async (id) => {
       const data = await getById(id);
       setProductos((prev) => {
+        if (prev.includes(id)) return prev;
         return [...prev, data];
       });
     });
-    console.log(productos);
+  };
+  const updateProds = async (prod) => {
+    productos.forEach(async (id) => {
+      const data = await update(id, prod);
+      setProductos((prev) => {
+        if (prev.includes(id)) return prev;
+        return [...prev, data];
+      });
+    });
+    handleClose();
   };
 
   return (
@@ -43,7 +54,10 @@ export default function UpdatePlural() {
           <Modal.Title>Editar Productos</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div>Hola</div>
+          <UpdatePageForm
+            updateFn={updateProds}
+            producto={productos}
+          ></UpdatePageForm>
         </Modal.Body>
       </Modal>
     </>

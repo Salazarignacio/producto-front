@@ -4,8 +4,7 @@ import ModalUpdate from "../components/ModalUpdate.jsx";
 import { SelectedIds } from "../context/SelectedIds.jsx";
 
 export default function EditProductoPage({ props }) {
-  const { selectedIds, setSelectedIds } =
-    useContext(SelectedIds);
+  const { selectedIds, setSelectedIds } = useContext(SelectedIds);
   const handleSelect = (id, checked) => {
     setSelectedIds((prev) => {
       if (checked) {
