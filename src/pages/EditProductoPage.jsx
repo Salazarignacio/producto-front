@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import DeleteProductoBDC from "../components/DeleteProductBDC.jsx";
 import ModalUpdate from "../components/ModalUpdate.jsx";
-import { SelectedProducts } from "../context/SelectedProducts.jsx";
+import { SelectedIds } from "../context/SelectedIds.jsx";
 
 export default function EditProductoPage({ props }) {
-  const { selectedProducts, setSelectedProducts } =
-    useContext(SelectedProducts);
+  const { selectedIds, setSelectedIds } =
+    useContext(SelectedIds);
   const handleSelect = (id, checked) => {
-    setSelectedProducts((prev) => {
+    setSelectedIds((prev) => {
       if (checked) {
         if (prev.includes(id)) return prev; // evita duplicado
         return [...prev, id];

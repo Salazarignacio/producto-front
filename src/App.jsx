@@ -4,7 +4,7 @@ import EditComponent from "./components/EditComponent.jsx";
 import DeleteProductoBDC from "./components/DeleteProductBDC.jsx";
 import "./style/Style.css";
 import { ProductProviderWrapper } from "./context/ProductContext.jsx";
-import { SelectedProviderWrapper } from "./context/SelectedProducts.jsx";
+import { SelectedProviderWrapper } from "./context/SelectedIds.jsx";
 import VentasComponent from "./components/VentasComponent.jsx";
 import BalanceWeb from "./components/BalanceWeb.jsx";
 import { useEffect, useState } from "react";
