@@ -4,41 +4,44 @@ import EditComponent from "./components/EditComponent.jsx";
 import DeleteProductoBDC from "./components/DeleteProductBDC.jsx";
 import "./style/Style.css";
 import { ProductProviderWrapper } from "./context/ProductContext.jsx";
+import { SelectedProviderWrapper } from "./context/SelectedProducts.jsx";
 import VentasComponent from "./components/VentasComponent.jsx";
 import BalanceWeb from "./components/BalanceWeb.jsx";
 import { useEffect, useState } from "react";
 
 function App() {
-const [dark, setDark] = useState(() => {
-  return localStorage.getItem("dark") === "true";
-});
+  const [dark, setDark] = useState(() => {
+    return localStorage.getItem("dark") === "true";
+  });
 
-useEffect(() => {
-  if (dark) {
-    document.body.classList.add("dark");
-  } else {
-    document.body.classList.remove("dark");
-  }
-  localStorage.setItem("dark", dark);
-}, [dark]);
+  useEffect(() => {
+    if (dark) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+    localStorage.setItem("dark", dark);
+  }, [dark]);
   return (
     <>
       <button className="darkMode" onClick={() => setDark(!dark)}>
-  {dark ? "☀️" : "🌙"}
-</button>
+        {dark ? "☀️" : "🌙"}
+      </button>
       <div className="app">
         <ProductProviderWrapper>
-          <BrowserRouter>
-            <MainPage>
-              <Routes>
-                <Route path="/edicion" element={<EditComponent />} />
-                <Route path="/destroy" element={<DeleteProductoBDC />} />
-                <Route path="/" element={<VentasComponent />} />
+          <SelectedProviderWrapper>
+            <BrowserRouter>
+              <MainPage>
+                <Routes>
+                  <Route path="/edicion" element={<EditComponent />} />
+                  <Route path="/destroy" element={<DeleteProductoBDC />} />
+                  <Route path="/" element={<VentasComponent />} />
 
-                <Route path="/balance" element={<BalanceWeb />} />
-              </Routes>
-            </MainPage>
-          </BrowserRouter>
+                  <Route path="/balance" element={<BalanceWeb />} />
+                </Routes>
+              </MainPage>
+            </BrowserRouter>
+          </SelectedProviderWrapper>
         </ProductProviderWrapper>
       </div>
     </>

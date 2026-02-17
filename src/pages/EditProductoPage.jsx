@@ -1,13 +1,34 @@
+import { useContext } from "react";
 import DeleteProductoBDC from "../components/DeleteProductBDC.jsx";
 import ModalUpdate from "../components/ModalUpdate.jsx";
+import { SelectedProducts } from "../context/SelectedProducts.jsx";
 
 export default function EditProductoPage({ props }) {
+  const { selectedProducts, setSelectedProducts } =
+    useContext(SelectedProducts);
+  const handleSelect = (id, checked) => {
+    setSelectedProducts((prev) => {
+      if (checked) {
+        if (prev.includes(id)) return prev; // evita duplicado
+        return [...prev, id];
+      } else {
+        return prev.filter((p) => p !== id);
+      }
+    });
+  };
+
   return (
     <ul className="productos-edit">
       <li className="producto-row">
+        <span className="check">
+          <input
+            type="checkbox"
+            onChange={(e) => handleSelect(props.id, e.target.checked)}
+          />
+        </span>
         <span className="codigo">{props.codigo}</span>
         <span className="nombre">{props.articulo}</span>
-         <span className="categoria">{props.categoria}</span> 
+        <span className="categoria">{props.categoria}</span>
         <span className="precio">${props.precio}</span>
         <span className="stock">{props.stock}</span>
 

@@ -2,6 +2,8 @@ import Loading from "../reutilizable/Loading.jsx";
 import EditProductoPage from "./EditProductoPage";
 import ModalCreate from "../components/ModalCreate.jsx";
 import "../style/Style.css";
+import ModalUpdatePlural from "../components/ModalUpdatePlural.jsx"
+
 
 export default function EditPage({ productos, searchCode }) {
   return (
@@ -19,6 +21,7 @@ export default function EditPage({ productos, searchCode }) {
         />
 
         <ModalCreate />
+       <ModalUpdatePlural></ModalUpdatePlural> 
       </div>
 
       <div className="scroll ">

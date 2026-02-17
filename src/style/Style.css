@@ -8,10 +8,9 @@
   --hover-shadow: inset 0 0 0 1px rgba(108, 99, 255, 0.12);
 
   --font-color: black;
-  --white-black:#f1f2f7;
+  --white-black: #f1f2f7;
 
-
-   --background: radial-gradient(circle at 20% 20%, #6c70a8 60%, #2a2f55);
+  --background: radial-gradient(circle at 20% 20%, #6c70a8 60%, #2a2f55);
 }
 
 /* 🌙 DARK MODE */
@@ -60,14 +59,14 @@
 }
 .darkMode:hover {
   transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
 }
 .darkMode:active {
   transform: scale(0.92) rotate(20deg);
 }
- li {
-  color: var(--font-color)
- }
+li {
+  color: var(--font-color);
+}
 input {
   background-color: var(--white-black) !important;
   color: var(--font-color) !important;
@@ -149,7 +148,6 @@ img:hover {
   overflow-y: auto;
   overflow-x: hidden;
 }
-
 
 .aside.closed {
   width: 0;
@@ -413,6 +411,18 @@ li {
   width: 80vw;
 }
 
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
 .producto-row span.codigo {
   font-size: 1rem;
   color: #8a94a6;
@@ -461,6 +471,7 @@ li {
 
   display: grid;
   grid-template-columns:
+    0.3fr
     1.2fr /* codigo */
     2.2fr /* nombre */
     1.5fr /* categoria */
