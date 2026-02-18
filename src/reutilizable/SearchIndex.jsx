@@ -58,23 +58,24 @@ export default function SearchIndex({ searchPosible, searchCode, posibles }) {
           placeholder="Ingrese el código del producto"
           className="search-input"
         />
-
-        <ModalCreate />
+        {open && posibles.length > 0 && (
+          <div className="buscador">
+            {posibles.map((a, i) => (
+              <div
+                key={i}
+                className="buscador-item"
+                onClick={() => handleSelect(a)}
+              >
+                {a.articulo}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
-      {open && posibles.length > 0 && (
-        <div className="buscador">
-          {posibles.map((a, i) => (
-            <div
-              key={i}
-              className="buscador-item"
-              onClick={() => handleSelect(a)}
-            >
-              {a.articulo}
-            </div>
-          ))}
-        </div>
-      )}
+      <div>
+        <ModalCreate />
+      </div>
     </div>
   );
 }
