@@ -136,9 +136,12 @@
   position: relative;
 }
 .btn-mas {
-  border: 2px solid var(--btn-scnd);
-  background-color: var(--btn-ppal);
-
+  background: 
+    var(--btn-ppal) padding-box,
+    var(--btn-scnd) border-box;
+    
+  border: 2px solid transparent;
+  
   cursor: pointer;
   transition: transform 0.1s;
   margin-left: 5px;
