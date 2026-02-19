@@ -2,7 +2,7 @@
   --bg-contenedores: linear-gradient(180deg, #e2e3ee 100%,#f4f6ff 0% );
   --sh-contenedores:
     0 8px 22px rgba(0, 0, 0, 0.12), 0 3px 8px rgba(0, 0, 0, 0.08);
---btn-ppal: linear-gradient(135deg, #fac415, #f5ab0b);
+--btn-ppal: linear-gradient(135deg, #ebb918, #e0a525);
 --btn-scnd: linear-gradient(135deg, #eab308, #d97706);
 
   --hover-color: rgba(108, 99, 255, 0.06);
@@ -309,6 +309,17 @@ img:hover {
   background: var(--btn-ppal) !important;
    border: 2px solid transparent !important;
   border-image: var(--btn-scnd) 1;
+  max-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-print img {
+  width: 130px !important;
+}
+.btn-print img:hover {
+  transform: scale(1);
 }
 .btn-print:hover {
   transform: scale(1.02);
