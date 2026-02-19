@@ -38,7 +38,7 @@ export default function UpdatePageForm({ updateFn, producto }) {
         <Form.Group className="mb-3">
           <Form.Label>Código</Form.Label>
           <Form.Control
-            type="number"
+            type="text"
             name="codigo"
             value={formData.codigo}
             onChange={handleChange}

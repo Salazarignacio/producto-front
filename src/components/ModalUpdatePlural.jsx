@@ -29,7 +29,7 @@ export default function UpdatePlural() {
   };
   const updateProds = async (prod) => {
     productos.forEach(async (id) => {
-      const data = await update(id, prod);
+      const data = await update(parseInt(id), prod);
       setProductos((prev) => {
         if (prev.includes(id)) return prev;
         return [...prev, data];
