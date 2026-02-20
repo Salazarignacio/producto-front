@@ -87,18 +87,28 @@
   min-width: 55%;
 }
 
+.loading{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
 .buscador {
   position: absolute;
   top: 45px;
   width: 100%; /* que coincida con el input */
 
-  background: #fff;
+  background: var(--white-black);
+  color: var(--font-color);
   border-radius: 0 0 10px 10px;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 
   padding: 0.4rem 0.5rem;
   box-sizing: border-box;
-
+  max-height: 30vh;
+  overflow-y: auto;
   z-index: 999; /* que flote sobre todo */
 }
 
@@ -136,12 +146,12 @@
   position: relative;
 }
 .btn-mas {
-  background: 
+  background:
     var(--btn-ppal) padding-box,
     var(--btn-scnd) border-box;
-    
+
   border: 2px solid transparent;
-  
+
   cursor: pointer;
   transition: transform 0.1s;
   margin-left: 5px;

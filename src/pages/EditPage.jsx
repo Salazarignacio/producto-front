@@ -34,7 +34,7 @@ export default function EditPage({ productos, searchCode }) {
           <span></span>
           <span></span>
         </div> */}
-        {productos.length < 0 ? (
+        {productos.length < 1 ? (
           <Loading />
         ) : (
           productos.map((element, a) => {
