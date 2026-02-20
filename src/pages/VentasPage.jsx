@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import deleteBtn from "../assets/btndelete.png";
+
 
 export default function VentasPage({
   props,

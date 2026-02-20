@@ -48,7 +48,7 @@ export default function TicketPage({ total, items, setProductos }) {
 
           <div className="ticket-row total">
             <span>Total</span>
-            <strong>${totalFormateado}</strong>
+            <strong>${totalFormateado} </strong>
           </div>
         </div>
       </div>
