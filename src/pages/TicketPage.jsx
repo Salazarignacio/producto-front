@@ -1,8 +1,11 @@
 import { Button } from "react-bootstrap";
 import printlogo from "../assets/printlogo.png";
 import cancel from "../assets/cancel.png";
+import { useState, useEffect } from "react";
 
 export default function TicketPage({ total, items, setProductos }) {
+  const [animarTotal, setAnimarTotal] = useState(false);
+
   const handleCancelarVenta = () => {
     const ok = window.confirm("¿Cancelar la venta actual?");
     if (!ok) return;
@@ -23,6 +26,16 @@ export default function TicketPage({ total, items, setProductos }) {
   });
   const totalFormateado = total.toLocaleString("es-AR");
 
+  useEffect(() => {
+    setAnimarTotal(true);
+
+    const timer = setTimeout(() => {
+      setAnimarTotal(false);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [total]);
+
   return (
     <div className="t-page">
       <div className="ticket-content">
@@ -30,7 +43,9 @@ export default function TicketPage({ total, items, setProductos }) {
 
         <div className="ticket-info">
           <div className="ticket-row">
-            <span><i class="fa-regular fa-circle-user"></i></span>
+            <span>
+              <i class="fa-regular fa-circle-user"></i>
+            </span>
             <strong>Ignacio</strong>
           </div>
           <div className="ticket-row">
@@ -38,7 +53,9 @@ export default function TicketPage({ total, items, setProductos }) {
             <strong>{fechaFormateada}</strong>
           </div>
           <div className="ticket-row">
-            <span><i className="fa-regular fa-clock"></i></span>
+            <span>
+              <i className="fa-regular fa-clock"></i>
+            </span>
             <strong>{hora}</strong>
           </div>
           <div className="ticket-row">
@@ -46,7 +63,7 @@ export default function TicketPage({ total, items, setProductos }) {
             <strong>{items} artículos</strong>
           </div>
 
-          <div className="ticket-row total">
+          <div className={`ticket-row total ${animarTotal ? "total-animado" : ""}`}>
             <span>Total</span>
             <strong>${totalFormateado} </strong>
           </div>
@@ -54,7 +71,10 @@ export default function TicketPage({ total, items, setProductos }) {
       </div>
 
       <div className="ticket-actions">
-        <Button className="btn-primary-soft w-100 btn-print" onClick={handlePrint}>
+        <Button
+          className="btn-primary-soft w-100 btn-print"
+          onClick={handlePrint}
+        >
           <img src={printlogo} />
         </Button>
 
