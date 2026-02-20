@@ -284,11 +284,13 @@
 }
 
 /* FILAS DEL CARRITO */
+
 .carrito-container {
   display: grid;
-  grid-template-columns: 3.5fr 1fr 1.5fr 1.5fr 1fr;
+  grid-template-columns: 3.5fr 1fr 1.5fr 1.5fr 0.5fr;
   align-items: center;
-  padding: 8px 10px;
+  justify-items: start; /* 👈 esto */
+  padding: 2px 25px;
   border-bottom: 1px solid #e0e0e0;
 }
 

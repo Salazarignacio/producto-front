@@ -43,7 +43,7 @@ export default function VentasComponent({}) {
           );
         }
 
-        return [...prev, { ...data, cantidad: 1 }];
+        return [ { ...data, cantidad: 1 }, ...prev];
       });
     }
   };
@@ -85,8 +85,8 @@ export default function VentasComponent({}) {
               <div className="carrito-titulos">
                 {/* <span>Codigo</span> */}
                 <span>Nombre</span>
-                <span>Cantidad</span>
                 <span>Precio Unitario</span>
+                <span>Cantidad</span>
                 <span>Subtotal</span>
                 <span></span>
               </div>
