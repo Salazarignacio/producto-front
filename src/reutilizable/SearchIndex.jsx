@@ -17,9 +17,9 @@ export default function SearchIndex({ searchPosible, searchCode, posibles }) {
   // ⌨️ ENTER del lector o teclado
   const handleKeyDown = async (e) => {
     if (e.key === "Enter") {
-      setOpen(false);
       e.preventDefault(); // evita comportamientos raros
       await handleSearch(code);
+      setOpen(false);
     }
   };
 
