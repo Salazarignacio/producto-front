@@ -18,7 +18,7 @@ export default function DeleteProductoBDC({ id }) {
   return (
     <>
       <Button className="btn-edit" onClick={() => destroyBD(id)}>
-        <img src={deleteBtn}></img>
+        <i className="fa-regular fa-trash-can"></i>
       </Button>
     </>
   );

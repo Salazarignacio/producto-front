@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { update, getById } from "../api/ProductoService";
 import UpdatePageForm from "../pages/UpdatePageForm.jsx";
-import editbtn from "../assets/editbtn.png"
+
 
 export default function ModalUpdate({ id }) {
   const { setRenderProducts } = useContext(ProductContext);
@@ -32,7 +32,7 @@ export default function ModalUpdate({ id }) {
   return (
     <>
       <Button variant="primary" className="btn-edit" onClick={handleShow}>
-        <img src={editbtn} ></img>
+        <i class="fa-regular fa-pen-to-square"></i>
       </Button>
 
       <Modal show={show} onHide={handleClose} centered backdrop="static">

@@ -55,7 +55,7 @@ export default function SearchIndex({ searchPosible, searchCode, posibles }) {
           value={code}
           onChange={(e) => handleChange(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Ingrese el código del producto"
+          placeholder="Ingrese el código del producto "
           className="search-input"
         />
         {open && posibles.length > 0 && (

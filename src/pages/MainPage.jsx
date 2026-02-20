@@ -16,7 +16,7 @@ export default function MainPage({ children }) {
         className={`toggle-btn ${open ? "open" : "closed"}`}
         onClick={() => setOpen(!open)}
       >
-        {open ? "X" : "."}
+        {open ? <i className="fa-solid fa-x"></i> : <i className="fa-solid fa-right-long"></i>}
       </div>
 
       {/* ASIDE */}

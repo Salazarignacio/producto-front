@@ -25,8 +25,9 @@ export default function ModalCreate({}) {
   const handleShow = () => setShow(true);
   return (
     <>
+
       <Button variant="primary" className="btn-mas" onClick={handleShow}>
-        Agregar Producto<img src={botonMas} alt="agregar" />
+        Agregar Producto <span className="m-2"><i className="fa-solid fa-plus"></i></span>
       </Button>
 
       <Modal show={show} onHide={handleClose}>

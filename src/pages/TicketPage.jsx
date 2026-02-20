@@ -30,20 +30,20 @@ export default function TicketPage({ total, items, setProductos }) {
 
         <div className="ticket-info">
           <div className="ticket-row">
-            <span>Vendedor</span>
+            <span><i class="fa-regular fa-circle-user"></i></span>
             <strong>Ignacio</strong>
           </div>
           <div className="ticket-row">
-            <span>Fecha</span>
+            <i className="fa-regular fa-calendar-days"></i>
             <strong>{fechaFormateada}</strong>
           </div>
           <div className="ticket-row">
-            <span>Hora</span>
+            <span><i className="fa-regular fa-clock"></i></span>
             <strong>{hora}</strong>
           </div>
           <div className="ticket-row">
-            <span>Productos</span>
-            <strong>{items}</strong>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <strong>{items} artículos</strong>
           </div>
 
           <div className="ticket-row total">

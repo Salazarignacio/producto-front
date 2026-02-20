@@ -46,7 +46,7 @@ export default function UpdatePlural() {
         disabled={isEmpty}
         onClick={handleShow}
       >
-        Edición Múltiple <img src={editbtn}></img>
+        Edición Múltiple <i class="fa-regular fa-pen-to-square m-2"></i>
       </Button>
 
       <Modal show={show} onHide={handleClose} centered backdrop="static">

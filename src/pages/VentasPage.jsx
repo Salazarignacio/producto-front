@@ -46,7 +46,7 @@ export default function VentasPage({
               className="btn-edit no-print"
               onClick={() => eliminarProducto(a.codigo)}
             >
-              <img src={deleteBtn}></img>
+              <i className="fa-regular fa-trash-can"></i>
             </Button>
           </li>
         </div>
