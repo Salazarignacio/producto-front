@@ -1,6 +1,5 @@
 import { Button } from "react-bootstrap";
 
-
 export default function VentasPage({
   props,
   eliminarProducto,
@@ -11,28 +10,36 @@ export default function VentasPage({
     <div className="ticket-print">
       {props.map((a) => (
         <div key={a.codigo} className="carrito-container">
-          {/* <li className="no-print">{a.codigo}</li> */}
+        
           <li>{a.articulo}</li>
 
           {/* Input que cambia valor manualmente */}
 
           <li>
-            <span className="only-print">{a.precio}</span>
-            $
+            <span className="only-print">
+              {a.precio.toLocaleString("es-AR")}
+            </span>
+
             <input
-              className="no-print"
-              type="number"
-              value={a.precio}
-              onChange={(e) =>
-                actualizarPrecio(a.codigo, Number(e.target.value))
-              }
+              className="no-print sell-input"
+              type="text"
+              value={a.precio ? `$ ${a.precio.toLocaleString("es-AR")}` : ""}
+              onChange={(e) => {
+                // quitamos todo lo que no sea número
+                const soloNumeros = e.target.value.replace(/\D/g, "");
+
+                actualizarPrecio(
+                  a.codigo,
+                  soloNumeros ? Number(soloNumeros) : 0,
+                );
+              }}
             />
           </li>
 
           <li>
             <span className="only-print">{a.cantidad}</span>
             <input
-              className="no-print"
+              className="no-print sell-input"
               type="number"
               min="1"
               value={a.cantidad}

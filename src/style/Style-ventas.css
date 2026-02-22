@@ -46,7 +46,9 @@
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.cancel-btn {
+.modal-header {
+  background: var(--bg-contenedores);
+  color: var(--font-color)
 }
 .cancel-btn:hover {
   transform: scale(1.1);
@@ -207,12 +209,16 @@
 }
 
 .search-input::placeholder {
-  color: #8a8a8a;
+  color: var(--font-color);
+}
+
+.sell-input{
+  width: 6.5rem !important;
 }
 
 /* FOCUS LINDO */
 .search-input:focus {
-  border-color: #6c63ff;
+  border-color: var(--btn-ppal);
   box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.25);
   background-color: #fff;
 }
