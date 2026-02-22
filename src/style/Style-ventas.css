@@ -212,8 +212,12 @@
   color: var(--font-color);
 }
 
-.sell-input{
-  width: 6.5rem !important;
+.sell-input {
+  width: 5.8rem !important;
+  background: var(--bg-contenedores) !important;
+  padding-right: 1rem;
+  text-align: right;
+  border-radius: 0.3rem;
 }
 
 /* FOCUS LINDO */
