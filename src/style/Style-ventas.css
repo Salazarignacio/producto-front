@@ -217,7 +217,20 @@
   background: var(--bg-contenedores) !important;
   padding-right: 1rem;
   text-align: right;
+  align-items: center !important;
   border-radius: 0.3rem;
+}
+.sell-input-cantidad {
+  width: 3rem !important;
+  background: var(--bg-contenedores) !important;
+  padding-right: 1rem;
+  text-align: right;
+  align-items: center !important;
+  border-radius: 0.3rem;
+}
+.sell-input-subtotal {
+/* text-align: right;
+background-color: red; */
 }
 
 /* FOCUS LINDO */
@@ -282,7 +295,8 @@
 /* CABECERA */
 .carrito-titulos {
   display: grid;
-  grid-template-columns: 3.5fr 1fr 1.5fr 1.5fr 1fr;
+  grid-template-columns: 1.4fr 1fr .7fr 1fr 0.5fr;
+  
   padding: 10px;
   font-weight: bold;
   /* background-color: rgb(224, 224, 224); */
@@ -298,11 +312,21 @@
 
 .carrito-container {
   display: grid;
-  grid-template-columns: 3.5fr 1fr 1.5fr 1.5fr 0.5fr;
+  grid-template-columns: 1.4fr 1fr .7fr 1fr 0.5fr;
   align-items: center;
-  justify-items: start;
+  /* justify-items: start; */
   padding: 2px 25px;
   border-bottom: 1px solid #e0e0e0;
+}
+
+/* Primera columna */
+.carrito-container > *:nth-child(1) {
+  justify-self: start;
+}
+
+/* Columnas 2 a 5 */
+.carrito-container > *:nth-child(n+2) {
+  justify-self: end;
 }
 
 .carrito-container li {

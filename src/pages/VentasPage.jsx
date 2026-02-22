@@ -47,7 +47,7 @@ export default function VentasPage({
             </span>
 
             <input
-              className="no-print sell-input"
+              className="no-print sell-input-cantidad"
               type="text"
               inputMode="numeric"
               value={a.cantidad ? a.cantidad.toLocaleString("es-AR") : ""}
@@ -66,7 +66,7 @@ export default function VentasPage({
               }}
             />
           </li>
-          <li className="no-print">${a.precio * a.cantidad}</li>
+          <li className="no-print sell-input-subtotal">${a.precio * a.cantidad}</li>
           <li>
             <Button
               className="btn-edit no-print"
