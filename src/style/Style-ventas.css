@@ -179,7 +179,7 @@
   transition: transform 0.1s;
   margin-left: 5px;
   height: 42px;
-  width: 25rem;
+  width: 20rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,7 +195,9 @@
   transform: scale(1.1);
 
   border: 2px solid var(--btn-scnd);
-  background-color: var(--btn-scnd);
+   background:
+    var(--btn-scnd) padding-box,
+    var(--btn-ppal) border-box;
 }
 
 .btn-mas:active {
