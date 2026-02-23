@@ -14,8 +14,9 @@ export default function TicketPage({ total, items, setProductos }) {
     localStorage.removeItem("productos");
   };
   const handlePrint = () => {
+    const ok = window.confirm("Imprimir ticket?");
+    if (!ok) return;
     window.print();
-     if (!ok) return;
     setProductos([]);
     localStorage.removeItem("productos");
   };
