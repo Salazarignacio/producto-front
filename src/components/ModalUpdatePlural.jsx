@@ -18,8 +18,19 @@ export default function UpdatePlural() {
     try {
       // Eliminamos codigo del objeto
       const { codigo, ...dataSinCodigo } = formData;
+      console.log(selectedIds);
+      await Promise.all(
+        selectedIds.map(async (id) => {
+          const original = await getById(id);
 
-      await Promise.all(selectedIds.map((id) => update(id, dataSinCodigo)));
+          const merged = {
+            ...original,
+            ...dataSinCodigo,
+          };
+
+          return update(id, merged);
+        }),
+      );
 
       handleClose();
     } catch (error) {
