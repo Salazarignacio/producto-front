@@ -1,9 +1,9 @@
 import { Button } from "react-bootstrap";
 import printlogo from "../assets/printlogo.png";
-import cancel from "../assets/cancel.png";
 import { useState, useEffect } from "react";
+import { update } from "../api/ProductoService";
 
-export default function TicketPage({ total, items, setProductos }) {
+export default function TicketPage({ total, items, prods, setProductos }) {
   const [animarTotal, setAnimarTotal] = useState(false);
 
   const handleCancelarVenta = () => {
@@ -13,9 +13,17 @@ export default function TicketPage({ total, items, setProductos }) {
     setProductos([]);
     localStorage.removeItem("productos");
   };
-  const handlePrint = () => {
+  const handlePrint = async () => {
     const ok = window.confirm("Imprimir ticket?");
     if (!ok) return;
+    prods.map((element) => {
+      element.stock = element.stock - element.cantidad;
+      return element;
+    });
+    prods.map(async (element) => {
+      const actualizarStock = await update(element.id, element);
+    });
+
     window.print();
     setProductos([]);
     localStorage.removeItem("productos");
@@ -46,7 +54,7 @@ export default function TicketPage({ total, items, setProductos }) {
         <div className="ticket-info">
           <div className="ticket-row">
             <span>
-              <i class="fa-regular fa-circle-user"></i>
+              <i className="fa-regular fa-circle-user"></i>
             </span>
             <strong>Ignacio</strong>
           </div>
@@ -61,11 +69,13 @@ export default function TicketPage({ total, items, setProductos }) {
             <strong>{hora}</strong>
           </div>
           <div className="ticket-row">
-            <i class="fa-solid fa-cart-shopping"></i>
+            <i className="fa-solid fa-cart-shopping"></i>
             <strong>{items} artículos</strong>
           </div>
 
-          <div className={`ticket-row total ${animarTotal ? "total-animado" : ""}`}>
+          <div
+            className={`ticket-row total ${animarTotal ? "total-animado" : ""}`}
+          >
             <span>Total</span>
             <strong>${totalFormateado} </strong>
           </div>
