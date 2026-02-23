@@ -5,10 +5,18 @@ export default function UpdatePageForm({ updateFn, producto }) {
   const [formData, setFormData] = useState({
     articulo: "",
     categoria: "",
-    precio: 0,
-    stock: 0,
-    codigo: 0,
+    precio: "",
+    stock: "",
+    codigo: "",
   });
+  const [touched, setTouched] = useState({
+    codigo: false,
+    articulo: false,
+  });
+
+  const isValid =
+    formData.codigo.trim() !== "" && formData.articulo.trim() !== "";
+
   useEffect(() => {
     if (producto) {
       setFormData({
@@ -29,6 +37,7 @@ export default function UpdatePageForm({ updateFn, producto }) {
     }));
   };
   const handleSubmit = (e) => {
+    if (!isValid) return;
     e.preventDefault();
     updateFn(formData);
   };
@@ -42,8 +51,15 @@ export default function UpdatePageForm({ updateFn, producto }) {
             name="codigo"
             value={formData.codigo}
             onChange={handleChange}
-            className="input-soft"
+            onBlur={() => setTouched((prev) => ({ ...prev, codigo: true }))}
+            placeholder="Código obligatorio *"
+            className={`input-soft ${
+              touched.codigo && !formData.codigo.trim() ? "input-error" : ""
+            }`}
           />
+          {touched.codigo && !formData.codigo.trim() && (
+            <div className="error-text">El código es obligatorio</div>
+          )}
         </Form.Group>
 
         <Form.Group className="mb-3">
@@ -53,8 +69,17 @@ export default function UpdatePageForm({ updateFn, producto }) {
             name="articulo"
             value={formData.articulo}
             onChange={handleChange}
-            className="input-soft"
+            onBlur={() => setTouched((prev) => ({ ...prev, articulo: true }))}
+            placeholder="Nombre artículo obligatorio *"
+            className={`input-soft ${
+              touched.articulo && !formData.articulo.trim() ? "input-error" : ""
+            }`}
           />
+          {touched.articulo && !formData.articulo.trim() && (
+            <div className="error-text">
+              El nombre del artículo es obligatorio
+            </div>
+          )}
         </Form.Group>
 
         <Form.Group className="mb-3">
@@ -92,7 +117,11 @@ export default function UpdatePageForm({ updateFn, producto }) {
           </Form.Group>
         </div>
 
-        <Button type="submit" className="btn-primary-soft w-100 mt-3">
+        <Button
+          type="submit"
+          className={`w-100 mt-3 ${isValid ? "btn-mas" : "btn-vacio"}`}
+          disabled={!isValid}
+        >
           Actualizar producto
         </Button>
       </Form>

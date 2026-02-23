@@ -5,9 +5,6 @@ import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { create } from "../api/ProductoService";
 import CreatePageForm from "../pages/CreatePageForm";
-import botonMas from "../assets/botonmas.png";
-
-
 
 export default function ModalCreate({}) {
   const { setRenderProducts } = useContext(ProductContext);

@@ -16,6 +16,7 @@ export default function CreatePageForm({ onSave }) {
 
   const isValid =
     formData.codigo.trim() !== "" && formData.articulo.trim() !== "";
+
   const handleChange = (e) => {
     const { name, value, type } = e.target;
 
@@ -65,7 +66,9 @@ export default function CreatePageForm({ onSave }) {
             }`}
           />
           {touched.articulo && !formData.articulo.trim() && (
-            <div className="error-text">El nombre del artículo es obligatorio</div>
+            <div className="error-text">
+              El nombre del artículo es obligatorio
+            </div>
           )}
         </Form.Group>
 
