@@ -25,15 +25,16 @@ export default function EditPage({ productos, searchCode }) {
       </div>
 
       <div className="scroll ">
-{/*         <div className="productos-header">
+      <div className="productos-header">
+     {/*      <span></span>
           <span>Codigo</span>
           <span>Nombre</span>
           <span>Categoría</span>
           <span>Precio</span>
           <span>Stock</span>
           <span></span>
-          <span></span>
-        </div> */}
+          <span></span> */}
+        </div> 
         {productos.length < 1 ? (
           <Loading />
         ) : (

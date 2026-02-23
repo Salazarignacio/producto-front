@@ -1,7 +1,7 @@
 import { Form, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 
-export default function UpdatePageForm({ updateFn, producto }) {
+export default function UpdatePageForm({ updateFn, producto, isMultiple }) {
   const [formData, setFormData] = useState({
     articulo: "",
     categoria: "",
@@ -14,8 +14,11 @@ export default function UpdatePageForm({ updateFn, producto }) {
     articulo: false,
   });
 
-  const isValid =
-    formData.codigo.trim() !== "" && formData.articulo.trim() !== "";
+  const isValid = isMultiple
+    ? Object.entries(formData).some(
+        ([key, value]) => key !== "codigo" && value !== "",
+      )
+    : formData.codigo.trim() !== "" && formData.articulo.trim() !== "";
 
   useEffect(() => {
     if (producto) {
@@ -44,23 +47,25 @@ export default function UpdatePageForm({ updateFn, producto }) {
   return (
     <div>
       <Form onSubmit={handleSubmit} className="update-form">
-        <Form.Group className="mb-3">
-          <Form.Label>Código</Form.Label>
-          <Form.Control
-            type="text"
-            name="codigo"
-            value={formData.codigo}
-            onChange={handleChange}
-            onBlur={() => setTouched((prev) => ({ ...prev, codigo: true }))}
-            placeholder="Código obligatorio *"
-            className={`input-soft ${
-              touched.codigo && !formData.codigo.trim() ? "input-error" : ""
-            }`}
-          />
-          {touched.codigo && !formData.codigo.trim() && (
-            <div className="error-text">El código es obligatorio</div>
-          )}
-        </Form.Group>
+        {!isMultiple && (
+          <Form.Group className="mb-3">
+            <Form.Label>Código</Form.Label>
+            <Form.Control
+              type="text"
+              name="codigo"
+              value={formData.codigo}
+              onChange={handleChange}
+              onBlur={() => setTouched((prev) => ({ ...prev, codigo: true }))}
+              placeholder="Código obligatorio *"
+              className={`input-soft ${
+                touched.codigo && !formData.codigo.trim() ? "input-error" : ""
+              }`}
+            />
+            {touched.codigo && !formData.codigo.trim() && (
+              <div className="error-text">El código es obligatorio</div>
+            )}
+          </Form.Group>
+        )}
 
         <Form.Group className="mb-3">
           <Form.Label>Nombre del artículo</Form.Label>
@@ -122,7 +127,9 @@ export default function UpdatePageForm({ updateFn, producto }) {
           className={`w-100 mt-3 ${isValid ? "btn-mas" : "btn-vacio"}`}
           disabled={!isValid}
         >
-          Actualizar producto
+          {isMultiple
+            ? "Actualizar productos seleccionados"
+            : "Actualizar producto"}
         </Button>
       </Form>
     </div>
