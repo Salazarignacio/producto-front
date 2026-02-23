@@ -6,15 +6,25 @@ export default function VentasPage({
   actualizarCantidad,
   actualizarPrecio,
 }) {
+
+  const total = props.reduce(
+    (acc, item) => acc + item.precio * item.cantidad,
+    0
+  );
+
   return (
     <div className="ticket-print">
+
+      {/* 🔝 Título */}
+      <div className="ticket-title only-print">
+        <h4>*** RESUMEN ***</h4>
+      </div>
+
       {props.map((a) => (
         <div key={a.codigo} className="carrito-container">
-          <li>{a.articulo}</li>
+          <div>{a.articulo}</div>
 
-          {/* Input que cambia valor manualmente */}
-
-          <li>
+          <div>
             <span className="only-print">
               {a.precio.toLocaleString("es-AR")}
             </span>
@@ -24,24 +34,22 @@ export default function VentasPage({
               type="text"
               value={a.precio ? `$ ${a.precio.toLocaleString("es-AR")}` : ""}
               onChange={(e) => {
-                // quitamos todo lo que no sea número
                 const soloNumeros = e.target.value.replace(/\D/g, "");
 
                 actualizarPrecio(
                   a.codigo,
-                  soloNumeros ? Number(soloNumeros) : 0,
+                  soloNumeros ? Number(soloNumeros) : 0
                 );
               }}
-                onKeyDown={(e) => {
+              onKeyDown={(e) => {
                 if (e.key === "Enter") {
                   e.target.blur();
                 }
               }}
             />
-            
-          </li>
+          </div>
 
-          <li>
+          <div>
             <span className="only-print">
               {a.cantidad.toLocaleString("es-AR")}
             </span>
@@ -56,7 +64,7 @@ export default function VentasPage({
 
                 actualizarCantidad(
                   a.codigo,
-                  soloNumeros ? Math.max(1, Number(soloNumeros)) : 1,
+                  soloNumeros ? Math.max(1, Number(soloNumeros)) : 1
                 );
               }}
               onKeyDown={(e) => {
@@ -65,18 +73,28 @@ export default function VentasPage({
                 }
               }}
             />
-          </li>
-          <li className="no-print sell-input-subtotal">${a.precio * a.cantidad}</li>
-          <li>
+          </div>
+
+          <div className="no-print sell-input-subtotal">
+            ${(a.precio * a.cantidad).toLocaleString("es-AR")}
+          </div>
+
+          <div>
             <Button
               className="btn-edit no-print"
               onClick={() => eliminarProducto(a.codigo)}
             >
               <i className="fa-regular fa-trash-can"></i>
             </Button>
-          </li>
+          </div>
         </div>
       ))}
+
+      {/* 🔽 Total */}
+      <div className="ticket-total only-print">
+        <h5> ****************** TOTAL: ${total.toLocaleString("es-AR")}</h5>
+      </div>
+
     </div>
   );
 }

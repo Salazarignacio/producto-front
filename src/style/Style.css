@@ -316,7 +316,7 @@ img:hover {
   box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.15);
 }
 .btn-print {
-    background:
+  background:
     var(--btn-ppal) padding-box,
     var(--btn-scnd) border-box !important;
   border: 2px solid transparent !important;
@@ -336,10 +336,9 @@ img:hover {
 .btn-print:hover {
   transform: scale(1.02);
   border: 2px solid var(--btn-scnd) !important;
-   background:
+  background:
     var(--btn-scnd) padding-box,
     var(--btn-ppal) border-box !important;
- 
 }
 
 .btn-cancel {
@@ -482,7 +481,6 @@ li {
   color: var(--font-color);
 }
 .producto-row span.categoria {
-  
   color: var(--font-color);
 }
 .producto-row span.stock {
@@ -580,12 +578,10 @@ li {
   color: var(--font-color);
 }
 
-
-.btn-close  {
+.btn-close {
   background-color: rgb(252, 130, 114);
   color: wheat;
 }
-
 
 /* Form */
 .update-form {
@@ -639,18 +635,31 @@ li {
 
   .ticket-print {
     position: static;
-    width: 280px;
+    width: 480px;
     font-family: monospace;
-    font-size: 12px;
+    font-size: 15px;
   }
 
   .no-print {
     display: none !important;
-    
   }
 
   .only-print {
     display: inline;
+  }
+  .ticket-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .ticket-total {
+    margin-top: 15px;
+    border-top: 1px dashed black;
+    padding-top: 8px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 16px;
   }
 }
 
