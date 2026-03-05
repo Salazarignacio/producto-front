@@ -4,8 +4,10 @@ import { useContext, useState } from "react";
 import { Modal } from "react-bootstrap";
 import { getById, update } from "../api/ProductoService";
 import UpdatePageForm from "../pages/UpdatePageForm";
+import { ProductContext } from "../context/ProductContext";
 
 export default function UpdatePlural() {
+  const { setRenderProducts } = useContext(ProductContext);
   const { selectedIds } = useContext(SelectedIds);
   const isEmpty = selectedIds.length < 2;
 
@@ -16,18 +18,24 @@ export default function UpdatePlural() {
 
   const updateProds = async (formData) => {
     try {
-      // Eliminamos codigo del objeto
       const { codigo, ...dataSinCodigo } = formData;
-      console.log(selectedIds);
+
       await Promise.all(
         selectedIds.map(async (id) => {
           const original = await getById(id);
 
+          // 👇 Construimos solo los campos no vacíos
+          const filteredData = Object.fromEntries(
+            Object.entries(dataSinCodigo).filter(
+              ([_, value]) => value !== "" && value !== null,
+            ),
+          );
+
           const merged = {
             ...original,
-            ...dataSinCodigo,
+            ...filteredData,
           };
-
+          setRenderProducts((prev) => !prev);
           return update(id, merged);
         }),
       );

@@ -8,7 +8,7 @@ export default function EditProductoPage({ props }) {
   const handleSelect = (id, checked) => {
     setSelectedIds((prev) => {
       if (checked) {
-        if (prev.includes(id)) return prev; // evita duplicado
+        if (prev.includes(id)) return prev; 
         return [...prev, id];
       } else {
         return prev.filter((p) => p !== id);
