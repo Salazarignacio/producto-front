@@ -319,6 +319,7 @@ background-color: red; */
   /* justify-items: start; */
   padding: 2px 25px;
   border-bottom: 1px solid #e0e0e0;
+  color: var(--font-color);
 }
 
 /* Primera columna */
