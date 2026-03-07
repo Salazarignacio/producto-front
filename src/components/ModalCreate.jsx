@@ -11,12 +11,24 @@ export default function ModalCreate({}) {
   const [show, setShow] = useState(false);
   const [producto, setProducto] = useState(null);
 
-  const save = async (prod) => {
+ const save = async (prod) => {
+  try {
     const data = await create(prod);
+    console.log(data);
+
     setProducto(data);
     setRenderProducts((prev) => !prev);
     handleClose();
-  };
+
+  } catch (error) {
+    console.log(error);
+
+    // dependiendo de tu API
+    const mensaje = error.response?.data?.message || "Error, el código que desea cargar ya pertenece a un producto";
+
+    alert(mensaje);
+  }
+};
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
