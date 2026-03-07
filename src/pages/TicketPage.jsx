@@ -7,19 +7,23 @@ export default function TicketPage({ total, items, prods, setProductos }) {
   const [animarTotal, setAnimarTotal] = useState(false);
 
   useEffect(() => {
-  const handleKeyDown = (e) => {
-    if (e.ctrlKey && e.key.toLowerCase() === "p" || e.key === "F9") {
-      e.preventDefault();
-      handlePrint();
-    }
-  };
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey && e.key.toLowerCase() === "p") || e.key === "F9") {
+        e.preventDefault();
+        handlePrint();
+      }
+      if (e.key === "F10") {
+        e.preventDefault();
+        handleCancelarVenta();
+      }
+    };
 
-  window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
 
-  return () => {
-    window.removeEventListener("keydown", handleKeyDown);
-  };
-}, []);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   const handleCancelarVenta = () => {
     const ok = window.confirm("¿Cancelar la venta actual?");
