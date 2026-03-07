@@ -4,6 +4,7 @@ import { getByCode, test } from "../api/ProductoService";
 import VentasPage from "../pages/VentasPage";
 import "../style/Style-ventas.css";
 import TicketComponent from "./TicketComponent";
+import { useRef } from "react";
 
 export default function VentasComponent({}) {
   const [prodPosibles, setProdPosibles] = useState([]);
@@ -11,11 +12,15 @@ export default function VentasComponent({}) {
     const guardados = localStorage.getItem("productos");
     return guardados ? JSON.parse(guardados) : [];
   });
-
+  const firstInputRef = useRef(null);
   useEffect(() => {
     localStorage.setItem("productos", JSON.stringify(productos));
   }, [productos]);
 
+  /* Focus */
+  const focusFirstInput = () => {
+    firstInputRef.current?.focus();
+  };
   const searchPosible = async (code) => {
     if (!code) {
       setProdPosibles([]);
@@ -43,7 +48,7 @@ export default function VentasComponent({}) {
           );
         }
 
-        return [ { ...data, cantidad: 1 }, ...prev];
+        return [{ ...data, cantidad: 1 }, ...prev];
       });
     }
   };
@@ -77,6 +82,7 @@ export default function VentasComponent({}) {
             searchCode={searchCode}
             searchPosible={searchPosible}
             posibles={prodPosibles}
+            inputRef={firstInputRef}
           ></SearchIndex>
           {!productos ? (
             "Ingrese Procuto"
@@ -96,6 +102,7 @@ export default function VentasComponent({}) {
                   eliminarProducto={eliminarProducto}
                   actualizarCantidad={actualizarCantidad}
                   actualizarPrecio={actualizarPrecio}
+                  focusFirstInput={focusFirstInput}
                 ></VentasPage>
               </div>
             </>

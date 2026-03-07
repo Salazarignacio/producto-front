@@ -2,12 +2,12 @@ import ModalCreate from "../components/ModalCreate";
 import { useState, useEffect } from "react";
 import { useRef } from "react";
 
-export default function SearchIndex({ searchPosible, searchCode, posibles }) {
+export default function SearchIndex({ searchPosible, searchCode, posibles, inputRef }) {
   const [code, setCode] = useState("");
   const [open, setOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const itemsRef = useRef([]);
-  const inputRef = useRef(null);
+  
 
   useEffect(() => {
     inputRef.current?.focus();

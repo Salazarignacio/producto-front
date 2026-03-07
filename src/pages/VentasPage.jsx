@@ -5,6 +5,7 @@ export default function VentasPage({
   eliminarProducto,
   actualizarCantidad,
   actualizarPrecio,
+  focusFirstInput
 }) {
 
   const total = props.reduce(
@@ -17,7 +18,7 @@ export default function VentasPage({
 
       {/* 🔝 Título */}
       <div className="ticket-title only-print">
-        <h4>*** RESUMEN ***</h4>
+        <h4>*RESUMEN*</h4>
       </div>
 
       {props.map((a) => (
@@ -43,7 +44,7 @@ export default function VentasPage({
               }}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
-                  e.target.blur();
+                  focusFirstInput();
                 }
               }}
             />
@@ -69,7 +70,7 @@ export default function VentasPage({
               }}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
-                  e.target.blur();
+                  focusFirstInput();
                 }
               }}
             />
@@ -92,7 +93,7 @@ export default function VentasPage({
 
       {/* 🔽 Total */}
       <div className="ticket-total only-print">
-        <h5> ****************** TOTAL: ${total.toLocaleString("es-AR")}</h5>
+        <h5>TOTAL ${total.toLocaleString("es-AR")}</h5>
       </div>
 
     </div>
