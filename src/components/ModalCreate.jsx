@@ -31,7 +31,7 @@ export default function ModalCreate({}) {
   const handleShow = () => setShow(true);
   return (
     <>
-      <Button variant="primary" className="btn-mas" onClick={handleShow}>
+      <Button variant="primary" className="btn-mas" onClick={handleShow} tabIndex={-1}>
         Agregar Producto{" "}
         <span className="m-2">
           <i className="fa-solid fa-plus"></i>

@@ -84,6 +84,7 @@ export default function VentasPage({
             <Button
               className="btn-edit no-print"
               onClick={() => eliminarProducto(a.codigo)}
+              tabIndex={-1}
             >
               <i className="fa-regular fa-trash-can"></i>
             </Button>
