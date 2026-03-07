@@ -6,6 +6,21 @@ import { update } from "../api/ProductoService";
 export default function TicketPage({ total, items, prods, setProductos }) {
   const [animarTotal, setAnimarTotal] = useState(false);
 
+  useEffect(() => {
+  const handleKeyDown = (e) => {
+    if (e.ctrlKey && e.key.toLowerCase() === "p" || e.key === "F9") {
+      e.preventDefault();
+      handlePrint();
+    }
+  };
+
+  window.addEventListener("keydown", handleKeyDown);
+
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+  };
+}, []);
+
   const handleCancelarVenta = () => {
     const ok = window.confirm("¿Cancelar la venta actual?");
     if (!ok) return;
