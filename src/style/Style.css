@@ -612,6 +612,16 @@ li {
   margin-bottom: 6px;
 }
 
+.price-options .form-check-input:checked {
+  background-color: black !important;
+    accent-color: black !important;
+  
+}
+
+.price-options .form-check-input {
+  accent-color: black !important; 
+}
+
 /* Botón */
 .btn-primary-soft {
   background-color: #6c7cff;
