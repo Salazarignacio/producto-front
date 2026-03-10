@@ -165,6 +165,17 @@ export default function UpdatePageForm({ updateFn, producto, isMultiple }) {
           </Form.Group>
         </div>
 
+{/*         <Form.Group>
+          <Form.Label>Proveedor / Marca</Form.Label>
+          <Form.Control
+            type="number"
+            name="proveedor"
+            value={formData.proveedor}
+            onChange={handleChange}
+            className="input-soft"
+          />
+        </Form.Group> */}
+
         <Button
           type="submit"
           className={`w-100 mt-3 ${isValid ? "btn-mas" : "btn-vacio"}`}
