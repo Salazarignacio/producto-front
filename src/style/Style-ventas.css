@@ -53,6 +53,11 @@
 .cancel-btn:hover {
   transform: scale(1.1);
 }
+
+.input-soft::placeholder {
+  color: var(--font-color);
+  opacity: 1;
+}
 .ticket-ventas {
   background: var(--bg-contenedores);
   padding: 1rem;
