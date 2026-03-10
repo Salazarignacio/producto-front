@@ -46,14 +46,10 @@ export async function update(id, product) {
   const res = await fetch(BASE_URL + `/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      articulo: product.articulo,
-      categoria: product.categoria,
-      precio: product.precio,
-      stock: product.stock,
-      codigo: product.codigo,
-    }),
+    body: JSON.stringify(product),
   });
+
+  return res;
 }
 
 export async function getByCode(code) {

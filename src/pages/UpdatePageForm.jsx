@@ -40,7 +40,7 @@ export default function UpdatePageForm({ updateFn, producto, isMultiple }) {
 
     setFormData((prev) => ({
       ...prev,
-      [name]: type === "number" ? Number(value) : value,
+      [name]: type === "number" ? (value === "" ? "" : Number(value)) : value,
     }));
   };
   const handleSubmit = (e) => {
@@ -50,13 +50,13 @@ export default function UpdatePageForm({ updateFn, producto, isMultiple }) {
     let dataToSend = { ...formData };
 
     if (modoPrecio === "precio") {
-      dataToSend.porcentaje = "";
+      delete dataToSend.porcentaje;
     }
 
     if (modoPrecio === "porcentaje") {
-      dataToSend.precio = "";
+      delete dataToSend.precio;
     }
-
+    console.log(formData)
     updateFn(dataToSend);
   };
   return (
