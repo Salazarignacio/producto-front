@@ -56,7 +56,7 @@ export default function UpdatePageForm({ updateFn, producto, isMultiple }) {
     if (modoPrecio === "porcentaje") {
       delete dataToSend.precio;
     }
-    console.log(formData)
+    console.log(formData);
     updateFn(dataToSend);
   };
   return (
@@ -115,51 +115,42 @@ export default function UpdatePageForm({ updateFn, producto, isMultiple }) {
 
         <div className="form-row-2">
           <Form.Group>
-            <Form.Check
-              type="radio"
-              label="Precio exacto"
-              name="modoPrecio"
-              checked={modoPrecio === "precio"}
-              onChange={() => {
-                setModoPrecio("precio");
-                setFormData((prev) => ({ ...prev, porcentaje: "" }));
-              }}
-            />
-
-            {modoPrecio === "precio" && (
-              <Form.Control
-                type="number"
-                name="precio"
-                placeholder="Precio exacto"
-                value={formData.precio}
-                onChange={handleChange}
-                className="input-soft"
+            <div className="price-options">
+              <Form.Check
+                type="radio"
+                label="$"
+                name="modoPrecio"
+                checked={modoPrecio === "precio"}
+                onChange={() => {
+                  setModoPrecio("precio");
+                  setFormData((prev) => ({ ...prev, porcentaje: "" }));
+                }}
               />
-            )}
-          </Form.Group>
 
-          <Form.Group>
-            <Form.Check
-              type="radio"
-              label="Aumentar por porcentaje"
-              name="modoPrecio"
-              checked={modoPrecio === "porcentaje"}
-              onChange={() => {
-                setModoPrecio("porcentaje");
-                setFormData((prev) => ({ ...prev, precio: "" }));
-              }}
-            />
-
-            {modoPrecio === "porcentaje" && (
-              <Form.Control
-                type="number"
-                name="porcentaje"
-                placeholder="%"
-                value={formData.porcentaje}
-                onChange={handleChange}
-                className="input-soft"
+              <Form.Check
+                type="radio"
+                label="%"
+                name="modoPrecio"
+                checked={modoPrecio === "porcentaje"}
+                onChange={() => {
+                  setModoPrecio("porcentaje");
+                  setFormData((prev) => ({ ...prev, precio: "" }));
+                }}
               />
-            )}
+            </div>
+
+            <Form.Control
+              type="number"
+              name={modoPrecio === "precio" ? "precio" : "porcentaje"}
+              placeholder={
+                modoPrecio === "precio" ? "Precio exacto" : "% de aumento"
+              }
+              value={
+                modoPrecio === "precio" ? formData.precio : formData.porcentaje
+              }
+              onChange={handleChange}
+              className="input-soft"
+            />
           </Form.Group>
 
           <Form.Group>

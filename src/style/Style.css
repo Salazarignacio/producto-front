@@ -606,6 +606,12 @@ li {
   gap: 12px;
 }
 
+.price-options {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
 /* Botón */
 .btn-primary-soft {
   background-color: #6c7cff;
